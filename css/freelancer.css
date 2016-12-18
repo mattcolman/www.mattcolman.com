@@ -461,3 +461,18 @@ footer .footer-below {
     display: none;
     opacity: 0;
 }
+
+.flexy {
+    text-align: left;
+    flex: 1;
+}
+
+.flexy2 {
+    display: flex;
+    justify-content: space-around;
+}
+
+matt-ul {
+    padding-left: 18px;
+}
+
