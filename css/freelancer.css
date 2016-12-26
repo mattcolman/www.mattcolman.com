@@ -282,6 +282,20 @@ section.success a.active {
     background: #fff;
 }
 
+.btn-outline-dark {
+    border: solid 2px #2c3e50;
+    color: #2c3e50;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active,
+.btn-outline-dark.active {
+    border: solid 2px #2c3e50;
+    color: #fff;
+    background: #617f96;
+}
+
 .floating-label-form-group {
     position: relative;
     margin-bottom: 0;
@@ -470,6 +484,12 @@ footer .footer-below {
 .flexy2 {
     display: flex;
     justify-content: space-around;
+}
+
+.centered {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 matt-ul {
