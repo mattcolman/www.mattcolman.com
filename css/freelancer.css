@@ -486,6 +486,18 @@ footer .footer-below {
     justify-content: space-around;
 }
 
+.super-ul {
+  text-align: left;
+}
+
+.super-ul > li {
+  padding-bottom: 10px;
+}
+
+.super-ul > li > a {
+  font-size: 1.5em;
+}
+
 .centered {
     width: 100%;
     text-align: center;
@@ -495,4 +507,3 @@ footer .footer-below {
 matt-ul {
     padding-left: 18px;
 }
-
