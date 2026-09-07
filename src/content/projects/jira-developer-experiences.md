@@ -1,5 +1,7 @@
 ---
 title: Developer experiences in Jira
+logo: /img/logos/jira.svg
+logoAlt: Jira
 order: 2
 period: Atlassian
 role: Engineering manager

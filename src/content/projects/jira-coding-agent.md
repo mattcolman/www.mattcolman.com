@@ -1,5 +1,7 @@
 ---
 title: Jira Coding Agent
+logo: /img/logos/jira.svg
+logoAlt: Jira
 order: 1
 period: Atlassian · Recent work
 role: Engineering manager

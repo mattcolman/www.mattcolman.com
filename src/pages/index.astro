@@ -22,7 +22,13 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
       <p class="hero-intro">I’ve built games, led engineering teams, and helped bring an AI coding agent to life inside Jira. I speak about engineering leadership, building AI teams, and the craft of making software.</p>
       <div class="hero-actions"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button text" href="#speaking">Watch a talk <span aria-hidden="true">↗</span></a></div>
     </div>
-    <div class="hero-portrait-wrap"><div class="portrait-frame"><img src="/img/profile.png" width="900" height="900" alt="Matt Colman" /></div><p><span class="status-light"></span><strong> Currently</strong><br />Engineering leadership and AI product experiences at Atlassian</p></div>
+    <div class="hero-portrait-wrap">
+      <div class="portrait-orbit" id="portrait-orbit">
+        <div class="portrait-frame"><img src="/img/profile.png" width="256" height="256" alt="Matt Colman" /></div>
+        <div class="flight-path" aria-hidden="true"><img class="orbit-plane" src="/img/plane.svg" alt="" width="32" height="32" /></div>
+      </div>
+      <button class="orbit-toggle" aria-controls="portrait-orbit" aria-pressed="false">Pause flight</button>
+      <p><span class="status-light"></span><strong> Currently</strong><br />Engineering leadership and AI product experiences at Atlassian</p></div>
   </section>
   <section class="ticker" aria-label="Areas of work"><div>AI products <span>+</span> Engineering leadership <span>+</span> Developer experience <span>+</span> Games <span>+</span> Public speaking</div></section>
   <section id="projects" class="section-shell section-block">
@@ -30,7 +36,10 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
     <div class="project-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
   </section>
   <section id="speaking" class="section-shell section-block">
-    <div class="section-heading"><div><p class="eyebrow">02 · Speaking</p><h2>Atlassian and<br />external talks</h2></div><p class="section-lead">Talks on building AI teams, engineering leadership, collaboration, and the details that make software feel good. Most recent first.</p></div>
+    <div class="speaking-heading">
+      <div><p class="eyebrow">02 · Speaking</p><h2>Atlassian and<br />external talks</h2><p class="section-lead">Talks on building AI teams, engineering leadership, collaboration, and the details that make software feel good. Most recent first.</p></div>
+      <img class="speaking-photo" src="/img/speaking/matt-speaker.jpg" alt="Matt Colman presenting Rovo Dev on stage" width="3024" height="4032" loading="lazy" />
+    </div>
     <div class="talk-list">{talks.map((talk, index) => <TalkCard talk={talk} index={index} />)}</div>
     <div class="workshop-callout"><p class="eyebrow">Workshops</p><h3>Rovo Dev</h3><p>Practical sessions helping teams understand and apply AI-assisted development. Audience, format, and resources will be added as the workshop archive develops.</p><a href="mailto:matt@mattcolman.com?subject=Workshop%20enquiry" class="button primary">Enquire about a workshop ↗</a></div>
   </section>
@@ -54,3 +63,14 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
   <section id="about" class="section-shell section-block about-grid"><div><p class="eyebrow">05 · About</p><h2>Engineering leader<br />and product builder.</h2></div><div class="about-copy"><p class="large-copy">I’m Matt Colman, an engineering leader and product engineer based in Sydney.</p><p>My career started in games and frontend engineering, where I learned to care about performance, interaction, and the details people can feel. Since then I’ve led teams across consumer search, developer experience, and AI products.</p><p>I’ve moved between engineering and management more than once. That range shapes how I work: stay close to the technology, make the direction clear, and create the conditions for good people to do ambitious work.</p><div class="about-highlight"><span>2021—2025</span><p><strong>APAC lead for ShipIt</strong><br />Supporting innovation across Atlassian’s long-running internal hackathon.</p></div></div></section>
   <Footer />
 </BaseLayout>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.orbit-toggle');
+  const orbit = document.querySelector('.portrait-orbit');
+  toggle?.addEventListener('click', () => {
+    const paused = toggle.getAttribute('aria-pressed') !== 'true';
+    toggle.setAttribute('aria-pressed', String(paused));
+    toggle.textContent = paused ? 'Resume flight' : 'Pause flight';
+    orbit?.classList.toggle('paused', paused);
+  });
+</script>

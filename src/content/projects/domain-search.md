@@ -1,5 +1,7 @@
 ---
 title: Domain search and listings
+logo: /img/logos/domain.png
+logoAlt: Domain
 order: 3
 period: Domain
 role: Engineering manager

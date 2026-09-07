@@ -1,5 +1,8 @@
 ---
 title: PlayUp and Draftstars
+logo: /img/logos/draftstars.png
+logoAlt: Draftstars — A PlayUp Company
+logoTheme: dark
 order: 4
 period: PlayUp
 role: Lead engineer

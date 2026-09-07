@@ -1,5 +1,7 @@
 ---
 title: Reading Eggs
+logo: /img/logos/reading-eggs.png
+logoAlt: Reading Eggs
 order: 5
 period: Blake eLearning
 role: Games team lead

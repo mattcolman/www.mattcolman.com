@@ -13,6 +13,9 @@ const projects = defineCollection({
     impact: z.string(),
     tags: z.array(z.string()),
     image: z.string().optional(),
+    logo: z.string().optional(),
+    logoAlt: z.string().optional(),
+    logoTheme: z.enum(['light', 'dark']).default('light'),
     featured: z.boolean().default(false),
   }),
 });

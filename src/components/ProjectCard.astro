@@ -4,6 +4,7 @@ interface Props { project: any; index: number; }
 const { project, index } = Astro.props;
 ---
 <article class:list={['project-card', { featured: project.data.featured }]}>
+  {project.data.logo && <div class:list={["project-brand", project.data.logoTheme]}><img src={project.data.logo} alt={project.data.logoAlt} loading="lazy" width="400" height="160" /></div>}
   <div class="card-number">{String(index + 1).padStart(2, '0')}</div>
   <div>
     <p class="card-meta">{project.data.period} · {project.data.role}</p>
