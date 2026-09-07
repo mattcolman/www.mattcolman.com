@@ -2,9 +2,10 @@
 import ArrowLink from './ArrowLink.astro';
 interface Props { talk: any; index: number; }
 const { talk, index } = Astro.props;
+const year = Math.max(...talk.data.appearances.map((item: any) => item.year ?? 0));
 ---
 <article class="talk-card">
-  <div class="talk-index">{String(index + 1).padStart(2, '0')}</div>
+  <div class="talk-index"><strong>{year || '—'}</strong><span>{String(index + 1).padStart(2, '0')}</span></div>
   <div class="talk-main">
     <p class="card-meta">{talk.data.topic}</p>
     <h3>{talk.data.title}</h3>

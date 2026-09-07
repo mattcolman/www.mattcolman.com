@@ -4,7 +4,8 @@ order: 1
 summary: What it takes to build capability, confidence, and useful products when an entire field is moving fast.
 topic: AI
 appearances:
-  - event: Web Directions
+  - event: Web Directions Dev Summit
+    year: 2024
 recording: https://conffab.com/presentation/building-an-ai-team-when-no-one-knows-anything-about-ai/
 recordingLabel: Watch on Conffab
 featured: true

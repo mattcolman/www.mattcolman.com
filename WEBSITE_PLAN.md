@@ -6,7 +6,7 @@ Status: proposed scope, before implementation. Source: portfolio.md and the exis
 
 Tell the story of an engineer, engineering leader, and speaker whose work spans games, high-traffic web products, developer tools, and AI. Lead with recent Atlassian work while keeping the craft and personality of the earlier career.
 
-Draft headline: **Engineering leader. AI native product engineer. Speaker.**
+Draft headline: **Engineering leader. Product builder. Speaker.**
 
 Draft introduction: “I'm Matt Colman. I've built games, led engineering teams, and helped bring AI developer tools to life at Atlassian. I speak about engineering leadership, building AI teams, and the craft of making software.” Confirm preferred current role wording before final copy.
 
@@ -20,7 +20,7 @@ Recommended navigation: **Projects · Speaking · Media · About · Contact**. S
 
 Use named products and outcomes rather than the current React / Games / Open Source categories. Suggested order:
 
-1. **Rovo Dev CLI and Rovo Dev in Jira** — featured project; engineering manager of 15 engineers. Explain the problem, team remit, personal contribution, and delivered product. Present the two surfaces together initially.
+1. **Jira Coding Agent** — featured project; engineering manager of 15 engineers. Explain the problem, team remit, personal contribution, and delivered product. Present the two surfaces together initially.
 2. **Developer experiences in Jira** — deployments, security, and code. The notes say four experiences but name three; leave the fourth unspecified until identified.
 3. **Domain search and listings** — leadership of the search and listings team across web and mobile web. Confirm the audience metric and time period before using “millions of DAU.”
 4. **PlayUp / Draftstars** — lead engineer taking a product from zero to one. Clarify the relationship between the product names before writing the final title.

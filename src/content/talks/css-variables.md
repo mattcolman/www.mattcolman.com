@@ -4,7 +4,8 @@ order: 4
 summary: Practical patterns for using CSS custom properties in production interfaces.
 topic: Engineering craft
 appearances:
-  - event: Web Directions
+  - event: Web Directions Hover
+    year: 2021
 recording: https://conffab.com/presentation/css-variables-for-real-life/
 recordingLabel: Watch on Conffab
 featured: false
