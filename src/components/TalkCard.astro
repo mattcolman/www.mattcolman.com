@@ -1,0 +1,18 @@
+---
+import ArrowLink from './ArrowLink.astro';
+interface Props { talk: any; index: number; }
+const { talk, index } = Astro.props;
+---
+<article class="talk-card">
+  <div class="talk-index">{String(index + 1).padStart(2, '0')}</div>
+  <div class="talk-main">
+    <p class="card-meta">{talk.data.topic}</p>
+    <h3>{talk.data.title}</h3>
+    <p>{talk.data.summary}</p>
+    <p class="appearances">{talk.data.appearances.map((item: any) => `${item.event}${item.year ? ` · ${item.year}` : ''}`).join(' / ')}</p>
+  </div>
+  <div class="talk-action">
+    {talk.data.recording ? <ArrowLink href={talk.data.recording} label={talk.data.recordingLabel ?? 'Watch recording'} external /> : <><span class="recording-dot"></span><p>Recording to add</p></>}
+    <a class="detail-link" href={`/speaking/${talk.id}/`}>Talk details</a>
+  </div>
+</article>

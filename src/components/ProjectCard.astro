@@ -1,0 +1,15 @@
+---
+import ArrowLink from './ArrowLink.astro';
+interface Props { project: any; index: number; }
+const { project, index } = Astro.props;
+---
+<article class:list={['project-card', { featured: project.data.featured }]}>
+  <div class="card-number">{String(index + 1).padStart(2, '0')}</div>
+  <div>
+    <p class="card-meta">{project.data.period} · {project.data.role}</p>
+    <h3>{project.data.title}</h3>
+    <p>{project.data.summary}</p>
+    <ul class="tag-list" aria-label="Project areas">{project.data.tags.map((tag: string) => <li>{tag}</li>)}</ul>
+  </div>
+  <div class="impact"><span>Impact</span><p>{project.data.impact}</p><ArrowLink href={`/projects/${project.id}/`} label="Read case study" /></div>
+</article>

@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Matt Colman — Engineering leader, AI native product engineer, speaker',
+  description = 'Matt Colman is a Sydney-based engineering leader, AI native product engineer, and conference speaker.',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#102a43" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Matt Colman, home"><span>{'{'}</span>Matt<span>:</span>Colman<span>{'}'}</span></a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="/#projects">Projects</a>
+        <a href="/#speaking">Speaking</a>
+        <a href="/#media">Media</a>
+        <a href="/#about">About</a>
+      </nav>
+      <a class="header-cta" href="mailto:matt@mattcolman.com">Get in touch <span aria-hidden="true">↗</span></a>
+      <details class="mobile-menu">
+        <summary>Menu</summary>
+        <nav aria-label="Mobile navigation"><a href="/#projects">Projects</a><a href="/#speaking">Speaking</a><a href="/#media">Media</a><a href="/#about">About</a><a href="mailto:matt@mattcolman.com">Contact</a></nav>
+      </details>
+    </header>
+    <main id="main"><slot /></main>
+  </body>
+</html>

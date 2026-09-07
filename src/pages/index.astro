@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import TalkCard from '../components/TalkCard.astro';
+import ArrowLink from '../components/ArrowLink.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const talks = (await getCollection('talks')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout>
+  <section class="hero section-shell">
+    <div class="hero-copy">
+      <p class="eyebrow">Sydney, Australia · Building products and teams</p>
+      <h1>Engineering leader.<br /><em>AI native</em> product engineer.<br />Speaker.</h1>
+      <p class="hero-intro">I’ve built games, led engineering teams, and helped bring AI developer tools to life at Atlassian. I speak about engineering leadership, building AI teams, and the craft of making software.</p>
+      <div class="hero-actions"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button text" href="#speaking">Watch a talk <span aria-hidden="true">↗</span></a></div>
+    </div>
+    <div class="hero-portrait-wrap"><div class="portrait-frame"><img src="/img/profile.png" width="900" height="900" alt="Matt Colman" /></div><p><strong>Currently</strong><br />Engineering leadership and AI developer tools at Atlassian</p></div>
+  </section>
+  <section class="ticker" aria-label="Areas of work"><div>AI products <span>✦</span> Engineering leadership <span>✦</span> Developer experience <span>✦</span> Public speaking <span>✦</span></div></section>
+  <section id="projects" class="section-shell section-block">
+    <div class="section-heading"><div><p class="eyebrow">01 · Selected work</p><h2>Products built.<br /><em>Teams led.</em></h2></div><p class="section-lead">From educational games and high-traffic search to AI-native developer tools, I work where engineering craft meets product direction.</p></div>
+    <div class="project-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
+  </section>
+  <section class="statement-band"><div class="section-shell statement-inner"><p class="eyebrow">What I care about</p><blockquote>Build the team that can build the product — then make both <em>better.</em></blockquote><div class="principles"><p><span>01</span> Make the problem clear</p><p><span>02</span> Learn by shipping</p><p><span>03</span> Raise the craft together</p></div></div></section>
+  <section id="speaking" class="section-shell section-block">
+    <div class="section-heading"><div><p class="eyebrow">02 · Speaking</p><h2>Ideas, shared<br /><em>in the open.</em></h2></div><p class="section-lead">Talks on building AI teams, engineering leadership, collaboration, and the details that make software feel good.</p></div>
+    <div class="talk-list">{talks.map((talk, index) => <TalkCard talk={talk} index={index} />)}</div>
+    <div class="workshop-callout"><p class="eyebrow">Workshops</p><h3>Rovo Dev</h3><p>Practical sessions helping teams understand and apply AI-assisted development. Audience, format, and resources will be added as the workshop archive develops.</p><a href="mailto:matt@mattcolman.com?subject=Workshop%20enquiry" class="button primary">Enquire about a workshop ↗</a></div>
+  </section>
+  <section id="media" class="media-section"><div class="section-shell media-grid"><div><p class="eyebrow">03 · Media</p><h2>Rovo Dev<br /><em>for tech leaders.</em></h2><p>A conversation about AI developer tools and what they mean for the teams building software.</p><ArrowLink href="https://www.youtube.com/watch?v=iE6hubTmjhY" label="Watch on YouTube" external /></div><a class="video-poster" href="https://www.youtube.com/watch?v=iE6hubTmjhY" target="_blank" rel="noreferrer" aria-label="Watch Rovo Dev for tech leaders on YouTube"><span class="play">▶</span><span class="video-label">Featured conversation</span><strong>Rovo Dev<br />for tech leaders</strong></a></div></section>
+  <section id="about" class="section-shell section-block about-grid"><div><p class="eyebrow">04 · About</p><h2>A builder who<br />became a leader.<br /><em>And kept building.</em></h2></div><div class="about-copy"><p class="large-copy">I’m Matt Colman, an engineering leader and product engineer based in Sydney.</p><p>My career started in games and frontend engineering, where I learned to care about performance, interaction, and the details people can feel. Since then I’ve led teams across consumer search, developer experience, and AI products.</p><p>I’ve moved between engineering and management more than once. That range shapes how I work: stay close to the technology, make the direction clear, and create the conditions for good people to do ambitious work.</p><div class="about-highlight"><span>2021—2025</span><p><strong>APAC lead for ShipIt</strong><br />Supporting innovation across Atlassian’s long-running internal hackathon.</p></div></div></section>
+  <Footer />
+</BaseLayout>
