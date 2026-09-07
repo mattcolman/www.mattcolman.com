@@ -14,7 +14,11 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
   <section class="hero section-shell">
     <div class="hero-copy">
       <p class="eyebrow"><span class="prompt">matt@colman:~$</span> build products --with-great-teams</p>
-      <h1>Engineering leader.<br /><span>Product builder.</span><br />Speaker.</h1>
+      <h1>
+        <span class="hero-line"><span class="hero-emoji" aria-hidden="true">🧭</span><span>Engineering leader.</span></span>
+        <span class="hero-line"><span class="hero-emoji" aria-hidden="true">🛠️</span><span class="hero-highlight">Product builder.</span></span>
+        <span class="hero-line"><span class="hero-emoji" aria-hidden="true">🎤</span><span>Speaker.</span></span>
+      </h1>
       <p class="hero-intro">I’ve built games, led engineering teams, and helped bring an AI coding agent to life inside Jira. I speak about engineering leadership, building AI teams, and the craft of making software.</p>
       <div class="hero-actions"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button text" href="#speaking">Watch a talk <span aria-hidden="true">↗</span></a></div>
     </div>
@@ -25,9 +29,15 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
     <div class="section-heading"><div><p class="eyebrow">01 · Selected work</p><h2>Success stories</h2></div><p class="section-lead">From educational games and high-traffic search to an AI coding agent built into Jira, I work where engineering craft meets product direction.</p></div>
     <div class="project-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
   </section>
+  <section id="speaking" class="section-shell section-block">
+    <div class="section-heading"><div><p class="eyebrow">02 · Speaking</p><h2>Atlassian and<br />external talks</h2></div><p class="section-lead">Talks on building AI teams, engineering leadership, collaboration, and the details that make software feel good. Most recent first.</p></div>
+    <div class="talk-list">{talks.map((talk, index) => <TalkCard talk={talk} index={index} />)}</div>
+    <div class="workshop-callout"><p class="eyebrow">Workshops</p><h3>Rovo Dev</h3><p>Practical sessions helping teams understand and apply AI-assisted development. Audience, format, and resources will be added as the workshop archive develops.</p><a href="mailto:matt@mattcolman.com?subject=Workshop%20enquiry" class="button primary">Enquire about a workshop ↗</a></div>
+  </section>
+  <section id="media" class="media-section"><div class="section-shell media-grid"><div><p class="eyebrow">03 · Media</p><h2>Rovo Dev<br />for tech leaders.</h2><p>A conversation about AI coding agents and what they mean for the teams building software.</p><ArrowLink href="https://www.youtube.com/watch?v=iE6hubTmjhY" label="Watch on YouTube" external /></div><a class="video-poster" href="https://www.youtube.com/watch?v=iE6hubTmjhY" target="_blank" rel="noreferrer" aria-label="Watch Rovo Dev for tech leaders on YouTube"><span class="play">▶</span><span class="video-label">Featured conversation</span><strong>Rovo Dev<br />for tech leaders</strong></a></div></section>
   <section id="archive" class="archive-section">
     <div class="section-shell">
-      <div class="archive-heading"><p class="eyebrow">02 · From the archive</p><h2>Games, motion<br />and open source.</h2><p>I spent six years making games before moving back into product engineering. Hundreds of them! That work still shapes how I think about performance, interaction and delight.</p></div>
+      <div class="archive-heading"><p class="eyebrow">04 · From the archive</p><h2>Games, motion<br />and open source.</h2><p>I spent six years making games before moving back into product engineering. Hundreds of them! That work still shapes how I think about performance, interaction and delight.</p></div>
       <div class="showreel">
         <div class="screen-frame"><iframe src="https://player.vimeo.com/video/196944609" title="Matt Colman games showreel 2016" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
         <div class="reel-copy"><span class="cartridge-label">PLAYBACK / 2016</span><h3>Games showreel</h3><p>A collection of HTML5 games built with Phaser, CreateJS and Greensock.</p><ArrowLink href="https://vimeo.com/196944609" label="Watch on Vimeo" external /></div>
@@ -41,24 +51,6 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
       </div>
     </div>
   </section>
-  <section class="source-note"><div class="section-shell source-note-grid"><div class="code-window"><div class="window-bar"><span></span><span></span><span></span><b>career.js</b></div><pre><code><span class="code-blue">const</span> career = [
-  <span class="code-green">'games'</span>,
-  <span class="code-green">'search'</span>,
-  <span class="code-green">'developer experiences'</span>,
-  <span class="code-green">'AI products'</span>
-]
-
-career.forEach(problem =&gt; &#123;
-  understand(problem)
-  buildTheTeam()
-  shipAndLearn()
-&#125;)</code></pre></div><blockquote>Stay close to the technology. Make the direction clear. Keep shipping.</blockquote></div></section>
-  <section id="speaking" class="section-shell section-block">
-    <div class="section-heading"><div><p class="eyebrow">03 · Speaking</p><h2>Atlassian and<br />external talks</h2></div><p class="section-lead">Talks on building AI teams, engineering leadership, collaboration, and the details that make software feel good. Most recent first.</p></div>
-    <div class="talk-list">{talks.map((talk, index) => <TalkCard talk={talk} index={index} />)}</div>
-    <div class="workshop-callout"><p class="eyebrow">Workshops</p><h3>Rovo Dev</h3><p>Practical sessions helping teams understand and apply AI-assisted development. Audience, format, and resources will be added as the workshop archive develops.</p><a href="mailto:matt@mattcolman.com?subject=Workshop%20enquiry" class="button primary">Enquire about a workshop ↗</a></div>
-  </section>
-  <section id="media" class="media-section"><div class="section-shell media-grid"><div><p class="eyebrow">04 · Media</p><h2>Rovo Dev<br />for tech leaders.</h2><p>A conversation about AI coding agents and what they mean for the teams building software.</p><ArrowLink href="https://www.youtube.com/watch?v=iE6hubTmjhY" label="Watch on YouTube" external /></div><a class="video-poster" href="https://www.youtube.com/watch?v=iE6hubTmjhY" target="_blank" rel="noreferrer" aria-label="Watch Rovo Dev for tech leaders on YouTube"><span class="play">▶</span><span class="video-label">Featured conversation</span><strong>Rovo Dev<br />for tech leaders</strong></a></div></section>
   <section id="about" class="section-shell section-block about-grid"><div><p class="eyebrow">05 · About</p><h2>Engineering leader<br />and product builder.</h2></div><div class="about-copy"><p class="large-copy">I’m Matt Colman, an engineering leader and product engineer based in Sydney.</p><p>My career started in games and frontend engineering, where I learned to care about performance, interaction, and the details people can feel. Since then I’ve led teams across consumer search, developer experience, and AI products.</p><p>I’ve moved between engineering and management more than once. That range shapes how I work: stay close to the technology, make the direction clear, and create the conditions for good people to do ambitious work.</p><div class="about-highlight"><span>2021—2025</span><p><strong>APAC lead for ShipIt</strong><br />Supporting innovation across Atlassian’s long-running internal hackathon.</p></div></div></section>
   <Footer />
 </BaseLayout>
