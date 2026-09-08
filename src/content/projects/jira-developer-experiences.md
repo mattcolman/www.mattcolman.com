@@ -20,5 +20,3 @@ As an engineering manager, I helped deliver four new experiences for developers 
 - Led engineering teams delivering connected experiences inside Jira.
 - Helped teams shape and deliver integrations around key developer workflows.
 - Connected product experiences that had to be useful to both developers and the wider software team.
-
-The fourth experience and additional outcomes will be named when the public details are confirmed.

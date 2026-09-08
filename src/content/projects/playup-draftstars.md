@@ -16,5 +16,3 @@ featured: false
 As lead engineer, I helped take a fantasy sports product from a blank page to a working customer experience.
 
 The frontend used React and Redux, with particular attention to reusable components, animation, and stability. The work drew on Flow, ESLint, and Jest to reduce regressions while the product moved quickly.
-
-The relationship between the PlayUp and Draftstars product names will be clarified as the case study is expanded.
