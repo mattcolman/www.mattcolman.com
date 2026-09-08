@@ -53,17 +53,17 @@ nav a:hover { color: var(--blue); }
 .button.text { border-color: transparent; border-bottom-color: var(--ink); }
 .button:hover { transform: translate(2px,2px); box-shadow: none; }
 .hero-portrait-wrap { align-self: center; margin: 0; min-width: 0; }
-.portrait-contrib { position: relative; width: 100%; aspect-ratio: 1; padding: 14%; margin-bottom: 1rem; }
-.contrib-grid { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(17, 1fr); gap: 2px; pointer-events: none; }
-.contrib-cell { display: block; border-radius: 2px; background: var(--cell); animation: contrib-shade var(--duration, 8s) ease-in-out var(--delay, 0s) infinite alternate; }
-.contrib-cell.level-0 { --cell: #e4ecfb; }
-.contrib-cell.level-1 { --cell: var(--soft-blue); }
-.contrib-cell.level-2 { --cell: #a9c2ff; }
-.contrib-cell.level-3 { --cell: #6f96ff; }
-.contrib-cell.level-4 { --cell: var(--blue); }
-@keyframes contrib-shade { 0% { filter: brightness(1); } 50% { filter: brightness(.9); } 100% { filter: brightness(1.08); } }
-.portrait-frame { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 50%; border: 3px solid var(--paper); box-shadow: 0 0 0 2px var(--ink); }
+.portrait-orbit { position: relative; width: 100%; aspect-ratio: 1; padding: 26px; margin-bottom: 1rem; }
+.portrait-frame { width: 100%; height: 100%; overflow: hidden; border-radius: 50%; }
 .portrait-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.flight-path { position: absolute; inset: 8px; border: 1px dashed #9baebb; border-radius: 50%; container-type: size; animation: orbit-flight 24s linear infinite; pointer-events: none; }
+.orbit-dot-anchor { position: absolute; left: 50%; top: 50%; width: 44px; height: 44px; margin: -22px; transform: rotate(var(--angle)) translateY(-50cqh); }
+.orbit-dot-spin { display: block; width: 100%; height: 100%; animation: orbit-counter 24s linear infinite; }
+.orbit-dot { display: grid; place-items: center; width: 100%; height: 100%; border-radius: 50%; border: 2px solid var(--ink); background: var(--ink); font-size: 22px; line-height: 1; color: transparent; scale: .3; transition: scale .45s ease-in, color .2s, background .3s; }
+.orbit-dot-anchor.active .orbit-dot { color: inherit; background: var(--paper); scale: 1; animation: dot-bobble .7s ease-out; }
+@keyframes orbit-flight { to { rotate: 360deg; } }
+@keyframes orbit-counter { from { rotate: calc(-1 * var(--angle)); } to { rotate: calc(-1 * var(--angle) - 360deg); } }
+@keyframes dot-bobble { 0% { scale: .3; } 55% { scale: 1.25; } 75% { scale: .92; } 100% { scale: 1; } }
 .hero-portrait-wrap p { margin: 1rem 0 0; padding: .8rem; background: white; border: 1px solid var(--ink); font: .78rem/1.6 var(--mono); }
 .status-light { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--lime); border: 1px solid var(--ink); }
 
@@ -215,4 +215,4 @@ nav a:hover { color: var(--blue); }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
-@media (prefers-reduced-motion: reduce) { .contrib-cell { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .flight-path, .orbit-dot-spin, .orbit-dot { animation: none; } .orbit-dot-spin { rotate: calc(-1 * var(--angle)); } }
