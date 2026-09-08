@@ -6,7 +6,6 @@ Added 8 September 2026. Product logos identify Matt's portfolio work; original c
 - Domain: https://www.nineforbrands.com.au/wp-content/uploads/2023/09/domainlogoupdated2023.png — Nine's Domain brand library: https://www.nineforbrands.com.au/branding/domain/
 - Draftstars / A PlayUp Company: https://www.draftstars.com.au/wp-content/uploads/2019/06/draftstars_logo_playup.png — official Draftstars homepage.
 - Reading Eggs: https://readingeggs.com/images/logos/RE-logo-shadow.png — official Reading Eggs pricing page.
-- Plane: https://github.com/lucide-icons/lucide/blob/main/icons/plane.svg — Lucide, ISC licence; licence retained in public/img/plane-LICENSE.txt.
 - Speaking photo: public/img/speaking/matt-speaker.jpg — supplied by Matt.
 - Profile photo: public/img/profile.png — retained from Matt's original website.
 
