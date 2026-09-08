@@ -124,6 +124,10 @@ nav a:hover { color: var(--blue); }
 .speaking-photo { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 58%; }
 .talk-list { border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--blue); }
 .talk-card { display: grid; grid-template-columns: 100px 1fr 220px; gap: 2rem; padding: 2rem; background: white; border-bottom: 2px solid var(--ink); }
+.talk-card-no-links { grid-template-columns: 100px minmax(0,1fr); }
+.talk-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+.talk-meta .card-meta { margin: 0; }
+.talk-brand { display: block; width: 140px; height: auto; }
 .talk-card:last-child { border-bottom: 0; }
 .talk-card:hover { background: var(--lime); }
 .talk-index { display: flex; flex-direction: column; gap: .3rem; font-family: var(--mono); }

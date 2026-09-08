@@ -1,12 +1,14 @@
 ---
 title: WeAreDevelopers Berlin 2025
 order: 6
-summary: Talk title and session details to be added.
+summary: I presented the Rovo Dev suite and ran the first-ever Rovo Dev CLI workshop for over 80 participants. That workshop became the foundation for all future Rovo Dev workshops.
 topic: AI
 appearances:
   - event: WeAreDevelopers Berlin
     year: 2025
 featured: false
+showLinks: false
+atlassian: true
 ---
 
-This appearance is reserved in the archive while the final title, description, and recording are collected.
+I presented the Rovo Dev suite and ran the first-ever Rovo Dev CLI workshop for over 80 participants. That workshop became the foundation for all future Rovo Dev workshops.

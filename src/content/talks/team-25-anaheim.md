@@ -1,12 +1,14 @@
 ---
 title: Team ’25 Anaheim
 order: 8
-summary: Talk title and session details to be added.
+summary: I demoed Rovo Dev CLI live to over 100 potential customers.
 topic: AI
 appearances:
   - event: Atlassian Team ’25 Anaheim
     year: 2025
 featured: false
+showLinks: false
+atlassian: true
 ---
 
-This appearance is reserved in the archive while the final title, description, and recording are collected.
+I demoed Rovo Dev CLI live to over 100 potential customers.

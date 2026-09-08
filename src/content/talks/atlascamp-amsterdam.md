@@ -1,12 +1,14 @@
 ---
 title: AtlasCamp Amsterdam 2026
 order: 10
-summary: Talk title and session details to be added.
+summary: I demoed Rovo Dev in Jira live on stage and hosted a workshop for over 80 participants. We got instant feedback from potential customers, spotted bugs live, and reported them straight back to the team.
 topic: AI
 appearances:
   - event: AtlasCamp Amsterdam
     year: 2026
 featured: false
+showLinks: false
+atlassian: true
 ---
 
-This appearance is reserved in the archive while the final title, description, and recording are collected.
+I demoed Rovo Dev in Jira live on stage and hosted a workshop for over 80 participants. We got instant feedback from potential customers, spotted bugs live, and reported them straight back to the team.

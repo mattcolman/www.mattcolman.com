@@ -29,6 +29,8 @@ const talks = defineCollection({
     topic: z.enum(['AI', 'Leadership', 'Engineering craft']),
     appearances: z.array(z.object({ event: z.string(), year: z.number().optional() })),
     recording: z.url().optional(),
+    showLinks: z.boolean().default(true),
+    atlassian: z.boolean().default(false),
     recordingLabel: z.string().optional(),
     featured: z.boolean().default(false),
   }),

@@ -7,8 +7,8 @@ appearances:
   - event: Atlassian Team ’21
     year: 2021
 featured: false
+showLinks: false
+atlassian: true
 ---
 
 This talk explores the habits and techniques that make pair programming work when people are not in the same room.
-
-The recording will be added when the source file is ready.

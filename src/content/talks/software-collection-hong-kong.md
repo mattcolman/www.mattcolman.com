@@ -1,12 +1,14 @@
 ---
-title: Software collection Hong Kong 2025
+title: Software Collection Hong Kong 2025
 order: 9
-summary: Event name, talk title, and session details to be confirmed.
+summary: I was a keynote speaker covering the Atlassian Software Collection, including Rovo Dev, Jira Product Discovery, and DX.
 topic: AI
 appearances:
   - event: Hong Kong
     year: 2025
 featured: false
+showLinks: false
+atlassian: true
 ---
 
-This appearance is reserved in the archive while the official event name, title, description, and recording are collected.
+I was a keynote speaker covering the Atlassian Software Collection, including Rovo Dev, Jira Product Discovery, and DX.

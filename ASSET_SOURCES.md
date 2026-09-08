@@ -9,3 +9,5 @@ Added 8 September 2026. Product logos identify Matt's portfolio work; original c
 - Plane: https://github.com/lucide-icons/lucide/blob/main/icons/plane.svg — Lucide, ISC licence; licence retained in public/img/plane-LICENSE.txt.
 - Speaking photo: public/img/speaking/matt-speaker.jpg — supplied by Matt.
 - Profile photo: public/img/profile.png — retained from Matt's original website.
+
+- Atlassian wordmark: https://wac-cdn.atlassian.com/misc-assets/adg4-nav/AtlassianHeaderLogo.svg — official Atlassian website header.

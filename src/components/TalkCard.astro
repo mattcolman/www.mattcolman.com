@@ -4,16 +4,16 @@ interface Props { talk: any; index: number; }
 const { talk, index } = Astro.props;
 const year = Math.max(...talk.data.appearances.map((item: any) => item.year ?? 0));
 ---
-<article class="talk-card">
+<article class:list={["talk-card", { "talk-card-no-links": !talk.data.showLinks }]}>
   <div class="talk-index"><strong>{year || '—'}</strong><span>{String(index + 1).padStart(2, '0')}</span></div>
   <div class="talk-main">
-    <p class="card-meta">{talk.data.topic}</p>
+    <div class="talk-meta">{talk.data.atlassian && <img class="talk-brand" src="/img/logos/atlassian.svg" alt="Atlassian" width="156" height="20" loading="lazy" />}<p class="card-meta">{talk.data.topic}</p></div>
     <h3>{talk.data.title}</h3>
     <p>{talk.data.summary}</p>
     <p class="appearances">{talk.data.appearances.map((item: any) => `${item.event}${item.year ? ` · ${item.year}` : ''}`).join(' / ')}</p>
   </div>
-  <div class="talk-action">
+  {talk.data.showLinks && <div class="talk-action">
     {talk.data.recording ? <ArrowLink href={talk.data.recording} label={talk.data.recordingLabel ?? 'Watch recording'} external /> : <><span class="recording-dot"></span><p>Recording to add</p></>}
     <a class="detail-link" href={`/speaking/${talk.id}/`}>Talk details</a>
-  </div>
+  </div>}
 </article>
