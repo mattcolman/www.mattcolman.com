@@ -5,20 +5,21 @@ logoAlt: Jira
 order: 1
 period: Atlassian · Recent work
 role: Engineering manager
-summary: An AI coding agent built natively into Jira, taking work from a Jira issue towards a pull request.
-impact: Led a team of 15 engineers building a globally competitive AI product across two product surfaces.
+summary: An AI coding agent built into Jira and integrated with Rovo, taking work from an issue towards a pull request.
+impact: Led 15 engineers from zero to general availability in less than nine months.
 tags: [AI coding agent, Jira, Team leadership]
 featured: true
 ---
 
-I led a team of 15 engineers building an AI coding agent natively into Jira. The product took the context already captured in a Jira issue and used it to plan and generate a code change.
-
-This work joined product strategy, engineering leadership, and fast learning in a field that was changing underneath us. The challenge was not only to ship capable AI software, but to build a team able to evaluate it, learn from users, and improve it responsibly.
+I took Jira Coding Agent from zero to general availability (GA) in less than nine months, leading a team of 15 engineers. The agent used the context already captured in a Jira issue to plan and generate a code change.
 
 ## My contribution
 
-- Led the engineering group across the Jira coding agent experience.
-- Built the team’s operating rhythm around experimentation and product learning.
-- Partnered across product, design, and engineering to turn emerging AI capabilities into useful developer experiences.
+I led the engineering team through the build and launch. Our scope covered the platform, our own agent harness, the product experience inside Jira, and integration with Rovo.
 
-More product detail, imagery, and measurable outcomes will be added as publishable material becomes available.
+## What we built
+
+- **A new sandbox platform** to support the coding agent.
+- **Our own agent harness**, built alongside the platform and product experience.
+- **New product UX inside Jira**, adhering to the design guidelines.
+- **Integration with Rovo**, connecting the coding agent with the wider product.

@@ -13,4 +13,4 @@ featured: false
 
 Search and listings sit at the centre of a property marketplace. I led the engineering team responsible for these experiences across web and mobile web.
 
-The work combined product delivery with the operational demands of a high-traffic consumer service. More specific audience metrics will be added after they are verified for the relevant period.
+The work combined product delivery with the operational demands of a high-traffic consumer service.
