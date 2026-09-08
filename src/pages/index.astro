@@ -9,6 +9,11 @@ import Footer from '../components/Footer.astro';
 const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
 const latestYear = (talk: any) => Math.max(...talk.data.appearances.map((item: any) => item.year ?? 0));
 const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - latestYear(a) || b.data.order - a.data.order);
+const orbitDots = [
+  { emoji: '🧭', label: 'Engineering leader' },
+  { emoji: '🛠️', label: 'Product builder' },
+  { emoji: '🎤', label: 'Speaker' },
+];
 ---
 <BaseLayout>
   <section class="hero section-shell">
@@ -23,11 +28,16 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
       <div class="hero-actions"><a class="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button text" href="#speaking">Watch a talk <span aria-hidden="true">↗</span></a></div>
     </div>
     <div class="hero-portrait-wrap">
-      <div class="portrait-orbit" id="portrait-orbit">
+      <div class="portrait-orbit">
         <div class="portrait-frame"><img src="/img/profile.png" width="256" height="256" alt="Matt Colman" /></div>
-        <div class="flight-path" aria-hidden="true"><img class="orbit-plane" src="/img/plane.svg" alt="" width="32" height="32" /></div>
+        <div class="flight-path" aria-hidden="true">
+          {orbitDots.map((dot, index) => (
+            <span class={`orbit-dot-anchor${index === 0 ? ' active' : ''}`} style={`--angle:${index * 120}deg`}>
+              <span class="orbit-dot-spin"><span class="orbit-dot" title={dot.label}>{dot.emoji}</span></span>
+            </span>
+          ))}
+        </div>
       </div>
-      <button class="orbit-toggle" aria-controls="portrait-orbit" aria-pressed="false">Pause flight</button>
       <p><span class="status-light"></span><strong> Currently</strong><br />Engineering leadership and AI product experiences at Atlassian</p></div>
   </section>
   <section class="ticker" aria-label="Areas of work"><div>AI products <span>+</span> Engineering leadership <span>+</span> Developer experience <span>+</span> Games <span>+</span> Public speaking</div></section>
@@ -65,12 +75,11 @@ const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - late
 </BaseLayout>
 
 <script>
-  const toggle = document.querySelector<HTMLButtonElement>('.orbit-toggle');
-  const orbit = document.querySelector('.portrait-orbit');
-  toggle?.addEventListener('click', () => {
-    const paused = toggle.getAttribute('aria-pressed') !== 'true';
-    toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Resume flight' : 'Pause flight';
-    orbit?.classList.toggle('paused', paused);
-  });
+  const anchors = Array.from(document.querySelectorAll('.orbit-dot-anchor'));
+  let active = 0;
+  setInterval(() => {
+    anchors[active]?.classList.remove('active');
+    active = (active + 1) % anchors.length;
+    anchors[active]?.classList.add('active');
+  }, 2000);
 </script>
