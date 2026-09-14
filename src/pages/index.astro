@@ -47,7 +47,7 @@ const orbitDots = [
       </div>
       <p><strong>Currently</strong><br />Engineering leadership and AI product experiences at Atlassian</p></div>
   </section>
-  <section class="ticker" aria-label="Areas of work"><div>AI products <span>+</span> Engineering leadership <span>+</span> Developer experience <span>+</span> Games <span>+</span> Public speaking</div></section>
+  <section class="ticker" aria-label="Areas of work"><ul role="list"><li>AI products</li><li>Engineering leadership</li><li>Developer experience</li><li>Games</li><li>Public speaking</li></ul></section>
   <section id="projects" class="section-shell section-block">
     <div class="section-heading"><div><p class="eyebrow">01 · Selected work</p><h2>Success stories</h2></div><p class="section-lead">From educational games and high-traffic search to an AI coding agent built into Jira, I work where engineering craft meets product direction.</p></div>
     <div class="project-list">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
@@ -95,10 +95,21 @@ const orbitDots = [
 
 <script>
   const anchors = Array.from(document.querySelectorAll('.orbit-dot-anchor'));
+  const motion = window.matchMedia('(min-width: 921px) and (prefers-reduced-motion: no-preference)');
   let active = 0;
-  setInterval(() => {
-    anchors[active]?.classList.remove('active');
-    active = (active + 1) % anchors.length;
-    anchors[active]?.classList.add('active');
-  }, 2000);
+  let timer: ReturnType<typeof setInterval> | undefined;
+
+  const updateMotion = () => {
+    clearInterval(timer);
+    if (!motion.matches || document.hidden || anchors.length === 0) return;
+    timer = setInterval(() => {
+      anchors[active]?.classList.remove('active');
+      active = (active + 1) % anchors.length;
+      anchors[active]?.classList.add('active');
+    }, 2000);
+  };
+
+  motion.addEventListener('change', updateMotion);
+  document.addEventListener('visibilitychange', updateMotion);
+  updateMotion();
 </script>
