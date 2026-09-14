@@ -16,7 +16,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#102a43" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -48,5 +48,25 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       </details>
     </header>
     <main id="main"><slot /></main>
+    <script>
+      const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+      const summary = menu?.querySelector('summary');
+
+      if (menu) {
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => { menu.open = false; });
+        });
+        document.addEventListener('click', (event) => {
+          if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
+        });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && menu.open) {
+            menu.open = false;
+            summary?.focus();
+          }
+        });
+        window.matchMedia('(min-width: 921px)').addEventListener('change', () => { menu.open = false; });
+      }
+    </script>
   </body>
 </html>
