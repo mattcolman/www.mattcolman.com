@@ -108,6 +108,18 @@ nav a:hover { color: var(--blue); }
 .games-preview p { max-width: 640px; margin-block: 0 .8rem; }
 .games-preview .arrow-link { max-width: 330px; }
 
+.tool-card { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); background: white; border: 2px solid var(--ink); text-decoration: none; transition: border-color .2s ease; }
+.tool-card:hover, .tool-card:focus-visible { border-color: var(--blue); }
+.tool-card-art { display: flex; align-items: center; justify-content: center; gap: 1.25rem; min-height: 280px; padding: 2rem; background: radial-gradient(30rem 16rem at 30% 30%, rgba(76,110,245,.35), transparent 70%), #0d1222; color: #eef1fa; border-right: 2px solid var(--ink); }
+.tool-card-art img { width: clamp(64px,7vw,96px); height: auto; filter: drop-shadow(0 0 28px rgba(91,124,255,.6)); }
+.tool-card-art span { font-size: clamp(2rem,3.6vw,3.4rem); font-weight: 700; line-height: .95; letter-spacing: -.06em; }
+.tool-card-art em { color: #5b7cff; font-style: normal; }
+.tool-card-copy { display: flex; flex-direction: column; padding: 2rem; }
+.tool-card-copy h3 { margin: 0 0 .8rem; font-size: clamp(1.8rem,3vw,3.2rem); line-height: 1; letter-spacing: -.05em; }
+.tool-card-copy>p:not(.card-meta) { margin-top: 0; font-size: 1.05rem; }
+.tool-card-copy .arrow-link { margin-top: auto; max-width: 330px; }
+.tool-card:hover .arrow-link { color: var(--blue); }
+
 .archive-section { padding-block: 7.5rem; background: var(--ink); color: white; }
 .archive-heading { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: end; }
 .archive-heading .eyebrow { grid-column: 1/-1; color: var(--lime); }
@@ -217,6 +229,7 @@ nav a:hover { color: var(--blue); }
   .section-heading, .about-grid, .archive-heading, .media-grid, .speaking-heading { grid-template-columns: minmax(0,1fr); gap: 1.5rem; }
   .project-list { grid-template-columns: minmax(0,1fr); }
   .project-card, .project-card:nth-child(n) { grid-column: auto; min-height: 0; }
+  .tool-card { grid-template-columns: minmax(0,1fr); }.tool-card-art { min-height: 200px; border-right: 0; border-bottom: 2px solid var(--ink); }
   .showreel { grid-template-columns: minmax(0,1fr); }.reel-copy { min-height: 0; }
   .open-source-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.open-source-grid>.eyebrow { grid-column: 1/-1; border-right: 2px solid white; border-bottom: 2px solid white; }
   .talk-card, .talk-card-compact.talk-card-no-links { grid-template-columns: 72px minmax(0,1fr); gap: 1rem; }.talk-action { grid-column: 2; }
@@ -235,6 +248,7 @@ nav a:hover { color: var(--blue); }
   .open-source-grid { grid-template-columns: minmax(0,1fr); }.open-source-grid>.eyebrow { grid-column: auto; }
   .project-card { padding: 1.25rem; grid-template-columns: minmax(0,1fr); gap: .75rem; }
   .project-brand { height: 144px; padding: 1rem; margin-bottom: 0; }
+  .tool-card-art { flex-direction: column; text-align: center; }.tool-card-copy { padding: 1.25rem; }
   .impact { grid-column: 1; }
   .talk-card, .talk-card-compact.talk-card-no-links { grid-template-columns: minmax(0,1fr); padding: 1.25rem; }.talk-action { grid-column: 1; }.talk-index { flex-direction: row; justify-content: space-between; }
   .games-preview { grid-template-columns: minmax(0,1fr); gap: 1.25rem; }
