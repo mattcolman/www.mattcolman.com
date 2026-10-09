@@ -3,8 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Footer from '../../components/Footer.astro';
 
 // Public Web3Forms access key (safe to ship in HTML). While empty, the form falls back to opening an email draft.
-const WEB3FORMS_ACCESS_KEY = '';
+const WEB3FORMS_ACCESS_KEY = '03593aa4-deda-4a0b-9eb8-b724d9cc5a2d';
 const repoUrl = 'https://github.com/mattcolman/annotate-and-edit';
+const storeUrl = 'https://chromewebstore.google.com/detail/annotate-edit/hcaoioabiohnpidicmlggoebdikklpam';
 const img = '/img/tools/annotate-and-edit';
 
 const steps = [
@@ -68,7 +69,7 @@ This button should be more prominent — maybe full width on mobile?
             <p class="ae-deck">Pin notes on any website and edit its text live. Then copy everything as one prompt for your AI coding agent.</p>
             <ul class="ae-pills" role="list"><li class="ae-pill-free">Free forever</li><li>No account</li><li>No data leaves your browser</li></ul>
             <div class="ae-actions">
-              <a class="button ae-button-primary" href="#install">Get the extension <span aria-hidden="true">↓</span></a>
+              <a class="button ae-button-primary" href={storeUrl}>Add to Chrome — it’s free <span aria-hidden="true">↗</span></a>
               <a class="button ae-button-ghost" href="#feedback">Send feedback</a>
             </div>
           </div>
@@ -123,14 +124,18 @@ This button should be more prominent — maybe full width on mobile?
     </section>
 
     <section id="install" class="section-shell section-block ae-install" aria-labelledby="install-title">
-      <div class="section-heading"><div><p class="eyebrow">Get it</p><h2 id="install-title">Install in a minute.</h2></div><p class="section-lead">A Chrome Web Store listing is coming soon. Until then, you can load it straight from GitHub.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Get it</p><h2 id="install-title">Install in a minute.</h2></div><p class="section-lead">Install it from the Chrome Web Store in one click. It’s free, with no account.</p></div>
       <ol class="ae-install-steps" role="list">
-        <li><span>01</span><p>Download or clone the <a href={repoUrl}>annotate-and-edit repo</a>.</p></li>
-        <li><span>02</span><p>Open <code>chrome://extensions</code> and switch on <strong>Developer mode</strong>.</p></li>
-        <li><span>03</span><p>Click <strong>Load unpacked</strong> and choose the <code>extension</code> folder.</p></li>
+        <li><span>01</span><p>Open <a href={storeUrl}>Annotate &amp; Edit on the Chrome Web Store</a>.</p></li>
+        <li><span>02</span><p>Click <strong>Add to Chrome</strong>, then <strong>Add extension</strong>.</p></li>
+        <li><span>03</span><p>Pin it from the puzzle-piece menu in your toolbar.</p></li>
         <li><span>04</span><p>Click the toolbar icon or press <kbd>Ctrl/⌘ + Shift + .</kbd> on any page.</p></li>
       </ol>
-      <a class="button primary" href={repoUrl}>View on GitHub <span aria-hidden="true">↗</span></a>
+      <div class="ae-install-actions">
+        <a class="button primary" href={storeUrl}>Add to Chrome <span aria-hidden="true">↗</span></a>
+        <a class="button text" href={repoUrl}>View source on GitHub ↗</a>
+      </div>
+      <p class="ae-install-note">Prefer to build it yourself? Load the <code>extension</code> folder unpacked from the <a href={repoUrl}>GitHub repo</a>.</p>
     </section>
 
     <section id="feedback" class="ae-feedback" aria-labelledby="feedback-title">
@@ -272,6 +277,8 @@ This button should be more prominent — maybe full width on mobile?
   .ae-install-steps p { margin: .6rem 0 0; }
   .ae-install-steps a { text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 3px; }
   .ae-install code, .ae-install kbd { padding: .1rem .35rem; background: var(--soft-blue); font: .85em var(--mono); }
+  .ae-install-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+  .ae-install-note { margin: 1rem 0 0; font-size: .9rem; }
 
   .ae-feedback { padding-block: 7rem; background: var(--soft-blue); border-top: 2px solid var(--ink); }
   .ae-feedback-grid { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 5rem; align-items: start; }
