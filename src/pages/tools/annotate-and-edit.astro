@@ -4,55 +4,18 @@ import Footer from '../../components/Footer.astro';
 
 // Public Web3Forms access key (safe to ship in HTML). While empty, the form falls back to opening an email draft.
 const WEB3FORMS_ACCESS_KEY = '03593aa4-deda-4a0b-9eb8-b724d9cc5a2d';
-const repoUrl = 'https://github.com/mattcolman/annotate-and-edit';
 const storeUrl = 'https://chromewebstore.google.com/detail/annotate-edit/hcaoioabiohnpidicmlggoebdikklpam';
 const img = '/img/tools/annotate-and-edit';
 
-const steps = [
-  {
-    verb: 'Annotate',
-    title: 'Pin a note on anything',
-    copy: 'Click any element on the page and leave a note like “make this button bigger” or “this photo feels too dark”. Numbered markers keep every comment anchored to the exact spot.',
-    image: `${img}/01-annotate.webp`,
-    alt: 'A note being added to a “Book a free call” button on a sample website',
-  },
-  {
-    verb: 'Edit',
-    title: 'Rewrite the text in place',
-    copy: 'Click a heading, paragraph or button and type the words you actually want. You see the change straight away, and it’s still there after you reload, so you can keep refining.',
-    image: `${img}/02c-edit-diff.webp`,
-    alt: 'A heading rewritten in place, with an “edited” badge and a before-and-after diff',
-  },
-  {
-    verb: 'Copy for agent',
-    title: 'Hand it all over in one paste',
-    copy: 'One click copies every note and edit as a single structured prompt. Each one includes the page, a CSS selector and the text around it. Paste it into Claude Code, Cursor, Devin or any coding agent.',
-    image: `${img}/05-copy.webp`,
-    alt: 'The Annotate & Edit panel listing notes and edits, with the “Copy for agent” button confirming the copy',
-  },
-];
+// Set to a video file path (e.g. /video/annotate-and-edit-demo.mp4) once the demo is recorded.
+const demoVideoSrc = '';
 
 const reasons = [
-  { label: 'Any URL', title: 'Works on any website', copy: 'Localhost, staging links and production, on any framework or plain HTML. The site doesn’t need anything installed.' },
-  { label: 'Client-proof', title: 'Made for non-technical reviewers', copy: 'Clients can point, click and type, which is easier than writing screenshots-and-arrows emails. Every change is easy to undo.' },
-  { label: 'Unambiguous', title: 'Feedback an agent can act on', copy: 'Every request is anchored to a real DOM element with its surrounding text, so your agent can find the spot without a follow-up call.' },
-  { label: 'Private', title: 'Nothing leaves your browser', copy: 'Notes and edits are saved locally on your device. There’s no backend, no analytics and no tracking.' },
+  { title: 'Works on any website', copy: 'Localhost, staging links and production, on any framework or plain HTML. The site doesn’t need anything installed.' },
+  { title: 'Made for non-technical reviewers', copy: 'Clients can point, click and type, which is easier than writing screenshots-and-arrows emails. Every change is easy to undo.' },
+  { title: 'Feedback an agent can act on', copy: 'Every request is anchored to a real DOM element with its surrounding text, so your agent can find the spot without a follow-up call.' },
+  { title: 'Nothing leaves your browser', copy: 'Notes and edits are saved locally on your device. There’s no backend, no analytics and no tracking.' },
 ];
-
-const exportSample = `# Website review — https://staging.acme.studio
-Generated 9 Oct 2026 — 1 note, 1 edit.
-
-## Edits
-### 1. /
-Change \`<h1>\` text
-- From: "We design websites that win clients"
-- To: "We design websites clients actually love"
-- Selector: \`main > h1\`
-
-## Annotations
-### 2. / — Design / layout
-This button should be more prominent — maybe full width on mobile?
-- Element: \`<a>\` "Book a free call"`;
 ---
 <BaseLayout title="Annotate & Edit — a free Chrome extension by Matt Colman" description="Annotate any website and edit its text live, then copy everything as one prompt for your AI coding agent. Free forever, no account, nothing leaves your browser.">
   <article class="ae-page">
@@ -69,7 +32,7 @@ This button should be more prominent — maybe full width on mobile?
             <p class="ae-deck">Pin notes on any website and edit its text live. Then copy everything as one prompt for your AI coding agent.</p>
             <ul class="ae-pills" role="list"><li class="ae-pill-free">Free forever</li><li>No account</li><li>No data leaves your browser</li></ul>
             <div class="ae-actions">
-              <a class="button ae-button-primary" href={storeUrl}>Add to Chrome — it’s free <span aria-hidden="true">↗</span></a>
+              <a class="button ae-button-primary" href={storeUrl} target="_blank" rel="noopener">Add to Chrome — it’s free <span aria-hidden="true">↗</span></a>
               <a class="button ae-button-ghost" href="#feedback">Send feedback</a>
             </div>
           </div>
@@ -86,56 +49,20 @@ This button should be more prominent — maybe full width on mobile?
 
     <section class="section-shell section-block ae-what" aria-labelledby="what-title">
       <div class="section-heading"><div><p class="eyebrow">What it does</p><h2 id="what-title">Point, rewrite, paste.</h2></div><p class="section-lead">Reviewing a website usually means vague emails and screenshots with arrows on them. Annotate &amp; Edit lets anyone mark up the real page and hand the result straight to an AI coding agent.</p></div>
-      <ol class="ae-steps" role="list">
-        {steps.map((step, index) => (
-          <li class="ae-step">
-            <div class="ae-step-copy">
-              <p class="ae-step-num"><span>{String(index + 1).padStart(2, '0')}</span>{step.verb}</p>
-              <h3>{step.title}</h3>
-              <p>{step.copy}</p>
-            </div>
-            <div class="ae-shot"><img src={step.image} alt={step.alt} width="1280" height="800" loading="lazy" /></div>
-          </li>
-        ))}
-      </ol>
+      <figure class="ae-video">
+        {demoVideoSrc
+          ? <video src={demoVideoSrc} controls playsinline preload="metadata" poster={`${img}/02c-edit-diff.webp`} width="1280" height="720"></video>
+          : <div class="ae-video-placeholder" role="img" aria-label="Demo video coming soon"><span class="ae-video-play" aria-hidden="true"></span><p>Demo video coming soon</p></div>}
+      </figure>
     </section>
 
     <section class="ae-why" aria-labelledby="why-title">
       <div class="section-shell">
         <div class="section-heading"><div><p class="eyebrow">Why use it</p><h2 id="why-title">Feedback without the back-and-forth.</h2></div><p class="section-lead">I built it for my own client work. I send a staging link, the client marks it up, and my coding agent makes every change in one pass.</p></div>
-        <div class="ae-why-grid">
-          <ul class="ae-reasons" role="list">
-            {reasons.map((reason) => <li><span>{reason.label}</span><h3>{reason.title}</h3><p>{reason.copy}</p></li>)}
-          </ul>
-          <figure class="ae-export">
-            <figcaption>What your agent receives</figcaption>
-            <pre><code>{exportSample}</code></pre>
-          </figure>
-        </div>
+        <ul class="ae-reasons" role="list">
+          {reasons.map((reason) => <li><h3>{reason.title}</h3><p>{reason.copy}</p></li>)}
+        </ul>
       </div>
-    </section>
-
-    <section class="section-shell ae-free" aria-labelledby="free-title">
-      <h2 id="free-title">Free.<br />Forever.</h2>
-      <div>
-        <p class="large-copy">Annotate &amp; Edit will always be free. There’s no trial, no paywall and no “pro” tier coming later.</p>
-        <ul class="ae-free-list" role="list"><li>No account or sign-up</li><li>No backend or subscription</li><li>No analytics or telemetry</li><li>Open source on GitHub</li></ul>
-      </div>
-    </section>
-
-    <section id="install" class="section-shell section-block ae-install" aria-labelledby="install-title">
-      <div class="section-heading"><div><p class="eyebrow">Get it</p><h2 id="install-title">Install in a minute.</h2></div><p class="section-lead">Install it from the Chrome Web Store in one click. It’s free, with no account.</p></div>
-      <ol class="ae-install-steps" role="list">
-        <li><span>01</span><p>Open <a href={storeUrl}>Annotate &amp; Edit on the Chrome Web Store</a>.</p></li>
-        <li><span>02</span><p>Click <strong>Add to Chrome</strong>, then <strong>Add extension</strong>.</p></li>
-        <li><span>03</span><p>Pin it from the puzzle-piece menu in your toolbar.</p></li>
-        <li><span>04</span><p>Click the toolbar icon or press <kbd>Ctrl/⌘ + Shift + .</kbd> on any page.</p></li>
-      </ol>
-      <div class="ae-install-actions">
-        <a class="button primary" href={storeUrl}>Add to Chrome <span aria-hidden="true">↗</span></a>
-        <a class="button text" href={repoUrl}>View source on GitHub ↗</a>
-      </div>
-      <p class="ae-install-note">Prefer to build it yourself? Load the <code>extension</code> folder unpacked from the <a href={repoUrl}>GitHub repo</a>.</p>
     </section>
 
     <section id="feedback" class="ae-feedback" aria-labelledby="feedback-title">
@@ -158,8 +85,8 @@ This button should be more prominent — maybe full width on mobile?
             <label><input type="radio" name="kind" value="Other" /> <span>Other</span></label>
           </fieldset>
           <label class="ae-field ae-field-wide">Your feedback <textarea name="message" rows="6" required maxlength="5000" placeholder="It would be great if…"></textarea></label>
-          <label class="ae-field">Name <span class="ae-optional">(optional)</span><input type="text" name="name" autocomplete="name" maxlength="120" /></label>
-          <label class="ae-field">Email <span class="ae-optional">(optional, if you'd like a reply)</span><input type="email" name="email" autocomplete="email" maxlength="200" /></label>
+          <label class="ae-field">Name <input type="text" name="name" autocomplete="name" maxlength="120" required /></label>
+          <label class="ae-field">Email <input type="email" name="email" autocomplete="email" maxlength="200" required /></label>
           <div class="ae-form-footer">
             <button class="button ae-button-primary" type="submit">Send feedback <span aria-hidden="true">→</span></button>
             <p class="ae-form-status" role="status" aria-live="polite"></p>
@@ -238,47 +165,23 @@ This button should be more prominent — maybe full width on mobile?
   .ae-window-bar span:nth-child(2) { background: #febc2e; }
   .ae-window-bar span:nth-child(3) { background: #28c840; }
 
-  .ae-what h2, .ae-why h2, .ae-install h2 { font-size: clamp(2.6rem,5.4vw,5.5rem); }
+  .ae-what h2, .ae-why h2 { font-size: clamp(2.6rem,5.4vw,5.5rem); }
+  .ae-video { margin: 0; border: 2px solid var(--ink); aspect-ratio: 16 / 9; overflow: hidden; }
+  .ae-video video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .ae-video-placeholder { display: flex; height: 100%; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; background: radial-gradient(40rem 22rem at 50% 40%, rgba(76,110,245,.35), transparent 70%), #0d1222; }
+  .ae-video-play { display: grid; width: 88px; height: 88px; place-items: center; border-radius: 50%; background: #4c6ef5; }
+  .ae-video-play::before { width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 18px solid white; content: ''; transform: translateX(3px); }
+  .ae-video-placeholder p { margin: 0; color: #c9d6e0; font: .85rem var(--mono); text-transform: uppercase; letter-spacing: .08em; }
   .ae-why h2 { margin: 1rem 0 0; font-weight: 600; line-height: .92; letter-spacing: -.07em; }
-  .ae-steps { display: grid; gap: 1.5rem; margin: 0; padding: 0; list-style: none; }
-  .ae-step { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 3rem; align-items: center; padding: 2rem; background: white; border: 2px solid var(--ink); }
-  .ae-step:nth-child(2) { background: var(--soft-blue); }
-  .ae-step:nth-child(3) { background: var(--soft-cyan); }
-  .ae-step-num { display: flex; align-items: center; gap: .75rem; margin: 0; color: var(--blue); font: 600 .8rem var(--mono); text-transform: uppercase; }
-  .ae-step-num span { color: var(--ink); }
-  .ae-step h3 { margin: .8rem 0; font-size: clamp(1.8rem,3vw,2.8rem); line-height: 1; letter-spacing: -.05em; }
-  .ae-step-copy p:last-child { max-width: 460px; font-size: 1.05rem; }
-  .ae-shot { overflow: hidden; border: 2px solid var(--ink); background: #f9f6f0; }
-  .ae-shot img { display: block; width: 100%; height: auto; }
 
   .ae-why { padding-block: 7rem; background: var(--ink); color: white; }
   .ae-why .eyebrow { color: var(--lime); }
   .ae-why .section-lead { color: #c9d6e0; }
-  .ae-why-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 2rem; align-items: start; }
-  .ae-reasons { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0; padding: 0; list-style: none; border-top: 2px solid white; border-left: 2px solid white; }
-  .ae-reasons li { padding: 1.5rem; border-right: 2px solid white; border-bottom: 2px solid white; }
-  .ae-reasons span { color: var(--cyan); font: .75rem var(--mono); text-transform: uppercase; }
-  .ae-reasons h3 { margin: .5rem 0; font-size: 1.3rem; line-height: 1.2; }
-  .ae-reasons p { margin: 0; color: #c9d6e0; font-size: .95rem; }
-  .ae-export { margin: 0; border: 2px solid white; background: #0d1222; }
-  .ae-export figcaption { padding: .8rem 1.2rem; border-bottom: 2px solid white; color: var(--lime); font: .75rem var(--mono); text-transform: uppercase; }
-  .ae-export pre { margin: 0; padding: 1.4rem 1.2rem; overflow-x: auto; color: #dfe6f5; font: .82rem/1.65 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
-
-  .ae-free { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 4rem; align-items: center; margin-block: 7rem 0; padding: clamp(2rem,5vw,4rem); background: var(--lime); border: 2px solid var(--ink); }
-  .ae-free h2 { margin: 0; font-size: clamp(3.5rem,9vw,9rem); font-weight: 700; line-height: .85; letter-spacing: -.07em; }
-  .ae-free .large-copy { margin-top: 0; font-size: clamp(1.2rem,1.8vw,1.5rem); line-height: 1.4; }
-  .ae-free-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .6rem 1.5rem; margin: 1.5rem 0 0; padding: 0; list-style: none; font: 500 .85rem var(--mono); }
-  .ae-free-list li::before { content: '+ '; color: var(--blue); }
-
-  .ae-install-steps { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); margin: 0 0 2.5rem; padding: 0; list-style: none; border: 2px solid var(--ink); }
-  .ae-install-steps li { padding: 1.5rem; background: white; border-right: 2px solid var(--ink); }
-  .ae-install-steps li:last-child { border-right: 0; }
-  .ae-install-steps span { color: var(--blue); font: 600 .8rem var(--mono); }
-  .ae-install-steps p { margin: .6rem 0 0; }
-  .ae-install-steps a { text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: 3px; }
-  .ae-install code, .ae-install kbd { padding: .1rem .35rem; background: var(--soft-blue); font: .85em var(--mono); }
-  .ae-install-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-  .ae-install-note { margin: 1rem 0 0; font-size: .9rem; }
+  .ae-reasons { max-width: 52rem; margin: 3rem 0 0; padding: 0; list-style: none; }
+  .ae-reasons li { position: relative; padding: 1.25rem 0 1.25rem 2rem; border-bottom: 1px solid rgba(255,255,255,.15); }
+  .ae-reasons li::before { position: absolute; top: 1.75rem; left: 0; width: .7rem; height: .7rem; background: var(--lime); content: ''; }
+  .ae-reasons h3 { margin: 0 0 .35rem; color: white; font-size: 1.3rem; }
+  .ae-reasons p { margin: 0; color: #c9d6e0; }
 
   .ae-feedback { padding-block: 7rem; background: var(--soft-blue); border-top: 2px solid var(--ink); }
   .ae-feedback-grid { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: 5rem; align-items: start; }
@@ -295,7 +198,6 @@ This button should be more prominent — maybe full width on mobile?
   .ae-kind input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 3px; }
   .ae-field { display: grid; gap: .45rem; font: 500 .78rem var(--mono); text-transform: uppercase; }
   .ae-field-wide { grid-column: 1 / -1; }
-  .ae-optional { color: var(--muted); text-transform: none; }
   .ae-field input, .ae-field textarea { width: 100%; padding: .8rem .9rem; border: 2px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font: 1rem/1.5 var(--sans); text-transform: none; }
   .ae-field textarea { resize: vertical; min-height: 140px; }
   .ae-field input:focus, .ae-field textarea:focus { outline: 3px solid var(--blue); outline-offset: 0; border-color: var(--blue); }
@@ -309,25 +211,18 @@ This button should be more prominent — maybe full width on mobile?
   @media (max-width: 920px) {
     .ae-hero { padding-block: 2rem 3.5rem; }
     .ae-hero .back-link { margin-bottom: 1.5rem; }
-    .ae-hero-grid, .ae-step, .ae-why-grid, .ae-free, .ae-feedback-grid { grid-template-columns: minmax(0,1fr); gap: 2rem; }
+    .ae-hero-grid, .ae-feedback-grid { grid-template-columns: minmax(0,1fr); gap: 2rem; }
     .ae-window-stack { padding: 1rem 1.5rem 1rem 0; }
     .ae-window-back { right: -6%; }
-    .ae-step { padding: 1.5rem; }
     .ae-why, .ae-feedback { padding-block: 4rem; }
-    .ae-free { margin-top: 4rem; }
-    .ae-install-steps { grid-template-columns: repeat(2,minmax(0,1fr)); }
-    .ae-install-steps li:nth-child(2) { border-right: 0; }
-    .ae-install-steps li:nth-child(-n+2) { border-bottom: 2px solid var(--ink); }
   }
 
   @media (max-width: 560px) {
     .ae-title { flex-direction: column; }
     .ae-wordmark { font-size: clamp(2.6rem,14.5vw,4rem); }
     .ae-actions .button { flex: 1 1 100%; text-align: center; }
-    .ae-reasons, .ae-free-list, .ae-form, .ae-install-steps { grid-template-columns: minmax(0,1fr); }
-    .ae-install-steps li, .ae-install-steps li:nth-child(2) { border-right: 0; border-bottom: 2px solid var(--ink); }
-    .ae-install-steps li:last-child { border-bottom: 0; }
+    .ae-video-play { width: 64px; height: 64px; }
+    .ae-form { grid-template-columns: minmax(0,1fr); }
     .ae-form { padding: 1.25rem; }
-    .ae-step { padding: 1.25rem; }
   }
 </style>
