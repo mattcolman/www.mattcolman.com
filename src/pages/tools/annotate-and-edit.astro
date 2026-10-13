@@ -63,13 +63,14 @@ const reasons = [
   .tool-video-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
   .tool-video-placeholder > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .35; filter: grayscale(1); }
   .tool-video-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .tool-video-content .label { color: var(--ink); }
+  .tool-video-content .label { padding: 4px 10px; background: var(--paper); color: var(--ink); }
   .tool-video-play { display: grid; width: 64px; height: 64px; place-items: center; border-radius: 50%; background: var(--accent); }
   .tool-video-play::before { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #fff; content: ''; transform: translateX(2px); }
 
   .tool-section { margin-top: 44px; padding-top: 38px; border-top: 1px solid var(--line); }
   .tool-reasons { margin: 0; padding: 0; list-style: none; }
   .tool-reasons li { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .tool-reasons li:last-child { border-bottom: 0; }
   .tool-reasons h3 { font-size: 1rem; letter-spacing: -.02em; }
   .tool-reasons p { margin-top: 4px; color: var(--muted); font-size: .85rem; }
 
