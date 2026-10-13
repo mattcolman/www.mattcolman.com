@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const storeUrl = 'https://chromewebstore.google.com/detail/annotate-edit/hcaoioabiohnpidicmlggoebdikklpam';
+const repoUrl = 'https://github.com/mattcolman/annotate-and-edit';
+const issuesUrl = `${repoUrl}/issues`;
+const img = '/img/tools/annotate-and-edit';
+const demoVideoSrc = '';
+
+const reasons = [
+  { title: 'Works on any website', copy: 'Localhost, staging links and production, on any framework or plain HTML. The site doesn’t need anything installed.' },
+  { title: 'Made for non-technical reviewers', copy: 'Clients can point, click and type, which is easier than writing screenshots-and-arrows emails. Every change is easy to undo.' },
+  { title: 'Feedback an agent can act on', copy: 'Every request is anchored to a real DOM element with its surrounding text, so your agent can find the spot without a follow-up call.' },
+  { title: 'Nothing leaves your browser', copy: 'Notes and edits are saved locally on your device. There’s no backend, no analytics and no tracking.' },
+];
+---
+<BaseLayout title="Annotate & Edit — a free Chrome extension by Matt Colman" description="Annotate any website and edit its text live, then copy everything as one prompt for your AI coding agent. Free forever, no account, nothing leaves your browser.">
+  <article class="detail-page tool-page">
+    <a class="text-link back-link" href="/#tools">← Tools</a>
+    <p class="label">Chrome extension · Free forever</p>
+    <h1 class="tool-title"><img src={`${img}/icon.svg`} alt="" width="56" height="56" /><span>Annotate <em>&amp;</em> Edit</span></h1>
+    <p class="detail-deck">Pin notes on any website and edit its text live. Then copy everything as one prompt for your AI coding agent.</p>
+    <p class="label tool-facts">No account · No tracking · Nothing leaves your browser</p>
+    <div class="tool-actions">
+      <a class="text-link" href={storeUrl} target="_blank" rel="noopener">Add to Chrome <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href={repoUrl} target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+    <figure class="tool-video">
+      {demoVideoSrc
+        ? <video src={demoVideoSrc} controls playsinline preload="metadata" poster={`${img}/02c-edit-diff.webp`} width="1280" height="720"></video>
+        : <div class="tool-video-placeholder" role="img" aria-label="Demo video coming soon">
+            <img src={`${img}/02c-edit-diff.webp`} alt="" width="1280" height="800" />
+            <div class="tool-video-content"><span class="tool-video-play" aria-hidden="true"></span><p class="label">Demo video coming soon</p></div>
+          </div>}
+    </figure>
+    <section class="tool-section" aria-labelledby="why-title">
+      <div class="section-heading"><h2 id="why-title">Why use it</h2></div>
+      <ul class="tool-reasons" role="list">
+        {reasons.map((reason) => <li><h3>{reason.title}</h3><p>{reason.copy}</p></li>)}
+      </ul>
+    </section>
+    <section class="tool-section tool-feedback" aria-labelledby="feedback-title">
+      <p class="label">Feedback</p>
+      <div>
+        <h2 id="feedback-title">Found a bug or have an idea?</h2>
+        <p>Annotate &amp; Edit is open source. Open an issue on GitHub and I’ll take a look.</p>
+        <a class="text-link" href={issuesUrl} target="_blank" rel="noopener">Open a GitHub issue <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .tool-page { max-width: none; }
+  .tool-title { display: flex; align-items: center; gap: 18px; }
+  .tool-title img { flex: 0 0 auto; width: 56px; height: 56px; object-fit: contain; }
+  .tool-title em { color: var(--accent); font-style: normal; }
+  .tool-facts { margin-top: 14px; }
+  .tool-actions { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 18px; }
+
+  .tool-video { position: relative; aspect-ratio: 16 / 9; margin: 36px 0 0; overflow: hidden; border: 1px solid var(--line); background: var(--tint); }
+  .tool-video > video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .tool-video-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .tool-video-placeholder > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .35; filter: grayscale(1); }
+  .tool-video-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .tool-video-content .label { padding: 4px 10px; background: var(--paper); color: var(--ink); }
+  .tool-video-play { display: grid; width: 64px; height: 64px; place-items: center; border-radius: 50%; background: var(--accent); }
+  .tool-video-play::before { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid #fff; content: ''; transform: translateX(2px); }
+
+  .tool-section { margin-top: 44px; padding-top: 38px; border-top: 1px solid var(--line); }
+  .tool-reasons { margin: 0; padding: 0; list-style: none; }
+  .tool-reasons li { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .tool-reasons li:last-child { border-bottom: 0; }
+  .tool-reasons h3 { font-size: 1rem; letter-spacing: -.02em; }
+  .tool-reasons p { margin-top: 4px; color: var(--muted); font-size: .85rem; }
+
+  .tool-feedback { display: grid; grid-template-columns: 160px minmax(0,1fr); gap: 18px; }
+  .tool-feedback > .label { padding-top: 4px; color: var(--accent); }
+  .tool-feedback h2 { font-size: 1.14rem; letter-spacing: -.025em; }
+  .tool-feedback p:not(.label) { max-width: 565px; margin-top: 10px; color: var(--muted); font-size: .87rem; }
+  .tool-feedback .text-link { margin-top: 12px; }
+
+  @media (max-width: 600px) {
+    .tool-title img { width: 44px; height: 44px; }
+    .tool-video-play { width: 48px; height: 48px; }
+    .tool-video-play::before { border-top-width: 6px; border-bottom-width: 6px; border-left-width: 10px; }
+    .tool-feedback { grid-template-columns: minmax(0,1fr); }
+  }
+</style>
