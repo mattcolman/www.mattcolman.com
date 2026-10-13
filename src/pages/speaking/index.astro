@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const latestYear = (talk: any) => Math.max(...talk.data.appearances.map((item: any) => item.year ?? 0));
+const talks = (await getCollection('talks')).sort((a, b) => latestYear(b) - latestYear(a) || b.data.order - a.data.order);
+const recordedTalks = talks.filter((talk) => talk.data.recording && talk.data.showLinks);
+const appearances = talks.filter((talk) => !recordedTalks.includes(talk));
+---
+<BaseLayout title="Speaking — Matt Colman" description="Talks, live demos and workshops from Matt Colman on AI teams, engineering leadership and the craft of making software.">
+  <section class="archive-page">
+    <a class="text-link back-link" href="/#speaking">← Back to the profile</a>
+    <p class="label">Speaking & workshops</p>
+    <h1>Things I’ve learned.<br />Shared out loud.</h1>
+    <p class="archive-deck">AI teams, engineering leadership and the craft of making software. Conference talks, product demos and practical workshops.</p>
+
+    <h2>Watch a talk</h2>
+    <div class="archive-list">
+      {recordedTalks.map((talk) => (
+        <article class="archive-row">
+          <span class="label">{latestYear(talk)}</span>
+          <div>
+            <h3><a href={`/speaking/${talk.id}/`}>{talk.data.title}</a></h3>
+            <p>{talk.data.summary}</p>
+            <p class="events">{talk.data.appearances.map((item) => item.event).join(' · ')}</p>
+          </div>
+          <a class="text-link" href={talk.data.recording}>Recording <span aria-hidden="true">↗</span></a>
+        </article>
+      ))}
+    </div>
+
+    <h2>More talks & appearances</h2>
+    <div class="archive-list">
+      {appearances.map((talk) => (
+        <article class="archive-row">
+          <span class="label">{latestYear(talk)}</span>
+          <div>
+            <h3>{talk.data.title}</h3>
+            <p>{talk.data.summary}</p>
+            <p class="events">{talk.data.appearances.map((item) => item.event).join(' · ')}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <h2>In conversation</h2>
+    <a class="talk-link conversation-link" href="https://www.youtube.com/watch?v=iE6hubTmjhY"><span>Rovo Dev for tech leaders</span><span>YouTube ↗</span></a>
+    <a class="text-link invite-link" href="mailto:matt@mattcolman.com?subject=Speaking%20enquiry">Invite me to speak <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>
