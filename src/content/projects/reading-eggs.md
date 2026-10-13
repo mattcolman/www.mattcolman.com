@@ -12,7 +12,7 @@ image: /img/portfolio/games.jpg
 featured: false
 ---
 
-I led a games team of five engineers and five designers working across Reading Eggs, Mathseeds, and Reading Eggspress.
+I led a games team of five engineers and five designers working across [Reading Eggs](https://readingeggs.com.au/), Mathseeds, and Reading Eggspress.
 
 The centrepiece was rebuilding Reading Eggs from Flash to HTML5: 120 lessons and the complete games arcade. The work demanded shared components, careful performance, and an experience that felt good on both desktop and mobile devices.
 

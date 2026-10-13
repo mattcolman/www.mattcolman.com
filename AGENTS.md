@@ -6,3 +6,5 @@
 - Sample document width and height throughout the portrait's 24-second animation cycle. Its paint containment and badge clearance prevent transformed bounds from widening the mobile viewport.
 - Keep the 920px mobile breakpoint and reduced-motion behavior consistent between CSS and the portrait timer. The active badge's animation selector must also be overridden.
 - Check mobile menu dismissal, landscape scrolling, 44px navigation targets, and 200% text sizing. Keep the mobile project list genuinely single-column; twelve zero-width tracks still have eleven gaps.
+- The current homepage signature morphs SVG dots between Build, Lead, and Speak. Keep the point count equal across shapes and verify click/keyboard switching, reduced motion, and document bounds throughout each transition.
+- If `npm run preview` detects a server belonging to another project, leave it running. After building, use `python3 -m http.server 4391 --bind 127.0.0.1 --directory dist` on a free port for isolated production-output checks. WebKit may expose valid cached navigations as HTTP 304.

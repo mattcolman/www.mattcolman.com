@@ -9,15 +9,17 @@ const featuredProjects = [
     id: 'jira-coding-agent',
     company: 'Atlassian',
     area: 'AI & developer tools',
+    role: 'Senior Engineering manager',
     displayTitle: 'Jira Coding Agent',
-    build: '15 engineers. Zero to general availability in under nine months.',
-    lead: 'Led 15 engineers from zero to general availability in under nine months.',
+    build: '15 engineers. Zero to general availability.',
+    lead: 'Led 15 engineers from zero to general availability.',
     speak: 'Product launches, live demos and workshops for developers.',
   },
   {
     id: 'domain-search',
     company: 'Domain',
     area: 'Consumer web',
+    role: 'Team lead',
     displayTitle: 'Search at scale',
     build: 'Search and listings across desktop and mobile web.',
     lead: 'Led the team behind the highest-traffic part of the business.',
@@ -27,10 +29,12 @@ const featuredProjects = [
     id: 'reading-eggs',
     company: 'Reading Eggs',
     area: 'Games & education',
+    role: 'Team lead',
     displayTitle: 'A new life for 120 lessons',
     build: 'Rebuilt Reading Eggs and its games arcade from Flash to HTML5.',
     lead: 'Led five engineers and five designers through the HTML5 rebuild.',
     speak: 'Years of making games shaped how I think about interaction and motion.',
+    extra: { href: 'https://vimeo.com/196944609', label: 'See my old games showreel' },
   },
 ].map((item) => ({ ...item, project: projectById.get(item.id) }));
 
@@ -69,11 +73,17 @@ const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-fl
     <div class="section-heading"><h2 id="work-title">Selected work</h2><p class="label">AI · Web · Games</p></div>
     <div class="work-list">
       {featuredProjects.map((item) => item.project && (
-        <a class="work-row" href={`/projects/${item.id}/`}>
-          <div class="company">{item.company}<span>{item.area}</span></div>
-          <div class="work-copy"><h3>{item.displayTitle}</h3><p data-build={item.build} data-lead={item.lead} data-speak={item.speak}>{item.build}</p></div>
+        <div class="work-row">
+          <div class="company">{item.company}<span>{item.area}</span><span>{item.role}</span></div>
+          <div class="work-copy">
+            <h3><a class="row-link" href={`/projects/${item.id}/`}>{item.displayTitle}</a></h3>
+            <p>
+              <span data-build={item.build} data-lead={item.lead} data-speak={item.speak}>{item.build}</span>
+              {item.extra && <>{' '}<a href={item.extra.href} target="_blank" rel="noopener">{item.extra.label}</a></>}
+            </p>
+          </div>
           <span class="row-arrow" aria-hidden="true">↗</span>
-        </a>
+        </div>
       ))}
     </div>
     <details class="more-work">
@@ -130,36 +140,37 @@ const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-fl
         }
       }
 
-      const pointsAlong = (vertices: number[][], count: number) => {
-        const segments = vertices.slice(1).map((point, index) => {
-          const start = vertices[index];
-          return { start, point, length: Math.hypot(point[0] - start[0], point[1] - start[1]) };
-        });
-        const totalLength = segments.reduce((sum, segment) => sum + segment.length, 0);
+      const pointsAlong = (d: string, count: number, closed = false) => {
+        const path = document.createElementNS(svgNS, 'path');
+        path.setAttribute('d', d);
+        const length = path.getTotalLength();
         return Array.from({ length: count }, (_, index) => {
-          let distance = totalLength * index / count;
-          for (const segment of segments) {
-            if (distance <= segment.length) {
-              return [
-                segment.start[0] + (segment.point[0] - segment.start[0]) * distance / segment.length,
-                segment.start[1] + (segment.point[1] - segment.start[1]) * distance / segment.length,
-              ];
-            }
-            distance -= segment.length;
-          }
-          return vertices.at(-1) ?? [0, 0];
+          const point = path.getPointAtLength(length * index / (closed ? count : count - 1));
+          return [point.x, point.y];
         });
       };
       const ring = (x: number, y: number, radius: number, count: number) => Array.from({ length: count }, (_, index) => [x + Math.cos(index / count * Math.PI * 2) * radius, y + Math.sin(index / count * Math.PI * 2) * radius]);
       const shapes: Record<string, number[][]> = {
-        build: pointsAlong([[48, 35], [48, 126], [71, 104], [89, 143], [104, 136], [87, 98], [121, 98], [48, 35]], 48),
-        lead: [...ring(90, 47, 14, 12), ...ring(49, 125, 14, 12), ...ring(131, 125, 14, 12), ...pointsAlong([[90, 64], [90, 86], [49, 86], [49, 107]], 6), ...pointsAlong([[90, 86], [131, 86], [131, 107]], 6)],
-        speak: Array.from({ length: 48 }, (_, index) => {
-          const column = Math.floor(index / 6);
-          const row = index % 6;
-          const heights = [20, 36, 65, 100, 79, 51, 30, 15];
-          return [40 + column * 14, 90 + (row / 5 - .5) * heights[column]];
-        }),
+        build: [
+          ...pointsAlong('M60 54 L24 90 L60 126', 19),
+          ...pointsAlong('M105 36 L75 144', 22),
+          ...pointsAlong('M120 54 L156 90 L120 126', 19),
+        ],
+        lead: [
+          ...ring(90, 36, 16, 12),
+          ...ring(34, 132, 16, 12),
+          ...ring(146, 132, 16, 12),
+          ...pointsAlong('M90 60 V76', 3),
+          ...pointsAlong('M34 84 H146', 15),
+          ...pointsAlong('M34 92 V108', 3),
+          ...pointsAlong('M146 92 V108', 3),
+        ],
+        speak: [
+          ...pointsAlong('M90 36 A18 18 0 0 1 108 54 V90 A18 18 0 0 1 72 90 V54 A18 18 0 0 1 90 36 Z', 32, true),
+          ...pointsAlong('M58 82 V90 A32 32 0 0 0 122 90 V82', 19),
+          ...pointsAlong('M90 130 V138', 2),
+          ...pointsAlong('M70 146 H110', 7),
+        ],
       };
       const notes: Record<string, string> = {
         build: 'From HTML5 games to AI developer tools.',
