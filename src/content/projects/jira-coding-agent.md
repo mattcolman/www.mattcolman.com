@@ -4,14 +4,14 @@ logo: /img/logos/jira.svg
 logoAlt: Jira
 order: 1
 period: Atlassian · Recent work
-role: Engineering manager
+role: Senior Engineering manager
 summary: An AI coding agent built into Jira and integrated with Rovo, taking work from an issue towards a pull request.
-impact: Led 15 engineers from zero to general availability in less than nine months.
+impact: Led 15 engineers from zero to general availability.
 tags: [AI coding agent, Jira, Team leadership]
 featured: true
 ---
 
-I took Jira Coding Agent from zero to general availability (GA) in less than nine months, leading a team of 15 engineers. The agent used the context already captured in a Jira issue to plan and generate a code change.
+I took [Jira Coding Agent](https://support.atlassian.com/jira-software-cloud/docs/what-is-the-jira-coding-agent/) from zero to general availability (GA), leading a team of 15 engineers. The agent used the context already captured in a Jira issue to plan and generate a code change.
 
 ## My contribution
 
