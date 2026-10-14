@@ -16,6 +16,7 @@ const { Content } = await render(talk);
     <p class="label">{talk.data.topic}</p>
     <h1>{talk.data.title}</h1>
     <p class="detail-deck">{talk.data.summary}</p>
+    {talk.data.image && <img class="detail-image" src={talk.data.image} alt={talk.data.imageAlt ?? ''} />}
     {talk.data.recording && talk.data.showLinks && (
       <a class="text-link recording-link" href={talk.data.recording}>{talk.data.recordingLabel ?? 'Watch recording'} <span aria-hidden="true">↗</span></a>
     )}

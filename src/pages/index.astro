@@ -11,9 +11,19 @@ const featuredProjects = [
     area: 'AI & developer tools',
     role: 'Senior Engineering manager',
     displayTitle: 'Jira Coding Agent',
-    build: '15 engineers. Zero to general availability.',
+    build: 'Atlassian’s own cloud AI coding agent. 15 engineers. Zero to general availability.',
     lead: 'Led 15 engineers from zero to general availability.',
     speak: 'Product launches, live demos and workshops for developers.',
+  },
+  {
+    id: 'rovo-dev-cli',
+    company: 'Atlassian',
+    area: 'AI & developer tools',
+    role: 'Senior Engineering manager',
+    displayTitle: 'Rovo Dev CLI',
+    build: 'An agentic coding assistant for the terminal, part of Rovo Dev.',
+    lead: 'Engineering manager for Atlassian’s CLI coding agent.',
+    speak: 'Demoed Rovo Dev CLI on stage and ran its first workshop.',
   },
   {
     id: 'domain-search',
@@ -21,7 +31,7 @@ const featuredProjects = [
     area: 'Consumer web',
     role: 'Team lead',
     displayTitle: 'Search at scale',
-    build: 'Search and listings across desktop and mobile web.',
+    build: 'Search and listings across desktop and mobile web. SSR, SEO, large fluctuations of traffic.',
     lead: 'Led the team behind the highest-traffic part of the business.',
     speak: 'Experience leading teams behind high-traffic consumer products.',
   },
@@ -31,15 +41,14 @@ const featuredProjects = [
     area: 'Games & education',
     role: 'Team lead',
     displayTitle: 'A new life for 120 lessons',
-    build: 'Rebuilt Reading Eggs and its games arcade from Flash to HTML5.',
+    build: 'Pushed HTML5 to its limits to get Reading Eggs into schools with iPads.',
     lead: 'Led five engineers and five designers through the HTML5 rebuild.',
     speak: 'Years of making games shaped how I think about interaction and motion.',
-    extra: { href: 'https://vimeo.com/196944609', label: 'See my old games showreel' },
   },
 ].map((item) => ({ ...item, project: projectById.get(item.id) }));
 
 const talkById = new Map((await getCollection('talks')).map((talk) => [talk.id, talk]));
-const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-floppers']
+const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-floppers', 'software-collection-hong-kong']
   .map((id) => talkById.get(id))
   .filter((talk) => talk !== undefined);
 ---
@@ -70,7 +79,7 @@ const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-fl
   </section>
 
   <section class="home-section" id="work" aria-labelledby="work-title">
-    <div class="section-heading"><h2 id="work-title">Selected work</h2><p class="label">AI · Web · Games</p></div>
+    <div class="section-heading"><h2 id="work-title">Success Stories</h2><p class="label">AI · Web · Games</p></div>
     <div class="work-list">
       {featuredProjects.map((item) => item.project && (
         <div class="work-row">
@@ -79,7 +88,7 @@ const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-fl
             <h3><a class="row-link" href={`/projects/${item.id}/`}>{item.displayTitle}</a></h3>
             <p>
               <span data-build={item.build} data-lead={item.lead} data-speak={item.speak}>{item.build}</span>
-              {item.extra && <>{' '}<a href={item.extra.href} target="_blank" rel="noopener">{item.extra.label}</a></>}
+              {' '}<svg class="tick" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2 6.5l3 3 5-6" /></svg>
             </p>
           </div>
           <span class="row-arrow" aria-hidden="true">↗</span>
@@ -87,7 +96,7 @@ const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-fl
       ))}
     </div>
     <details class="more-work">
-      <summary>More from the journey</summary>
+      <summary>More work</summary>
       <ul>
         <li><a href="/projects/jira-developer-experiences/">Developer experiences in Jira <span aria-hidden="true">↗</span></a><span>Four new experiences for developers</span></li>
         <li><a href="/projects/playup-draftstars/">PlayUp / Draftstars <span aria-hidden="true">↗</span></a><span>Lead engineer · Zero to one</span></li>
@@ -97,25 +106,34 @@ const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-fl
   </section>
 
   <section class="home-section speaking-home" id="speaking" aria-labelledby="speaking-title">
-    <figure>
-      <img class="speaking-photo" src="/img/speaking/matt-speaker.jpg" alt="Matt presenting Rovo Dev on stage" width="3024" height="4032" loading="lazy" />
-      <figcaption>On stage with Rovo Dev.</figcaption>
-    </figure>
     <div>
-      <p class="label">On stage</p>
-      <h2 id="speaking-title">A few things worth sharing.</h2>
+      <h2 id="speaking-title">Speaking</h2>
       <p class="section-copy">Talks on AI teams, engineering leadership and the craft of the web. At Web Directions, React Summit and Atlassian events.</p>
       <div class="talk-links">
         {featuredTalks.map((talk) => (
-          <a class="talk-link" href={`/speaking/${talk.id}/`}><span>{talk.data.title}</span><span>Watch ↗</span></a>
+          <a class="talk-link" href={`/speaking/${talk.id}/`}><span>{talk.data.displayTitle ?? talk.data.title}</span><span>{talk.data.recording && talk.data.showLinks ? 'Watch ↗' : 'Details ↗'}</span></a>
         ))}
       </div>
       <a class="text-link archive-link" href="/speaking/">All talks & appearances <span aria-hidden="true">↗</span></a>
     </div>
+    <div class="speaking-photos">
+      <figure>
+        <img class="speaking-photo" src="/img/speaking/matt-speaker.jpg" alt="Matt presenting Rovo Dev on stage" width="3024" height="4032" loading="lazy" />
+        <figcaption>On stage with Rovo Dev.</figcaption>
+      </figure>
+      <figure>
+        <img class="speaking-photo" src="/img/speaking/hong-kong-keynote.jpg" alt="Matt delivering the keynote at Atlassian Software Collection Hong Kong" width="1024" height="712" loading="lazy" />
+        <figcaption>Keynote at Atlassian Software Collection, Hong Kong.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="home-section" id="media" aria-labelledby="media-title">
+    <div class="section-heading"><h2 id="media-title">Media</h2><p class="label">In conversation</p></div>
+    <a class="talk-link" href="https://www.youtube.com/watch?v=iE6hubTmjhY" target="_blank" rel="noopener"><span>Rovo Dev for tech leaders</span><span>YouTube ↗</span></a>
   </section>
 
   <section class="home-section next-chapter" aria-labelledby="next-title">
-    <p class="label">The next chapter</p>
     <div>
       <h2 id="next-title">Now, building independently.</h2>
       <p>I’ve moved between engineering and management more than once. Now I’m putting that experience into my own products. If you’re building something and could use that mix, let’s talk.</p>
