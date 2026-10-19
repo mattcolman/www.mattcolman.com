@@ -48,7 +48,7 @@ const featuredProjects = [
 ].map((item) => ({ ...item, project: projectById.get(item.id) }));
 
 const talkById = new Map((await getCollection('talks')).map((talk) => [talk.id, talk]));
-const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-floppers', 'software-collection-hong-kong']
+const featuredTalks = ['building-an-ai-team', 'whose-job-is-animation', 'flip-floppers', 'software-collection-hong-kong', 'team-25-barcelona']
   .map((id) => talkById.get(id))
   .filter((talk) => talk !== undefined);
 ---

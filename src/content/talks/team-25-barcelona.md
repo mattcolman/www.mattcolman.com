@@ -6,8 +6,9 @@ topic: AI
 appearances:
   - event: Atlassian Team ’25 Barcelona
     year: 2025
-featured: false
-showLinks: false
+recording: https://www.youtube.com/watch?v=yWxpKMRjBRU
+recordingLabel: Watch on YouTube
+featured: true
 atlassian: true
 ---
 
