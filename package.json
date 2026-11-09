@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node --test worker/*.test.js",
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview"
