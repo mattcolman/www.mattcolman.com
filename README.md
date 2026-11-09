@@ -48,8 +48,8 @@ npx wrangler deploy --config wrangler.blog-redirect.jsonc
 
 Merging alone does not deploy this separate Worker. Deployment needs access to
 the `mattcolman.com` Cloudflare zone to install the `blog.mattcolman.com/*`
-route, and the blog DNS record must remain proxied. No DNS change or Ghost
-credentials are required. Verify the article responds with a 301 to the exact
+route, and the blog DNS record must be proxied. Confirm its proxy status in
+Cloudflare before deploying; no Ghost credentials are required. Verify the article responds with a 301 to the exact
 Medium URL, the homepage redirects to the profile, and an unknown post remains
 404 before requesting Search Console validation.
 
