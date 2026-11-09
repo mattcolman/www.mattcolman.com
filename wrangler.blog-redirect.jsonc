@@ -1,0 +1,9 @@
+{
+  "name": "mattcolman-blog-redirect",
+  "main": "./worker/blog-redirect.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "blog.mattcolman.com/*", "zone_name": "mattcolman.com" }
+  ]
+}
