@@ -11,7 +11,7 @@ tags: [AI coding agent, Jira, Team leadership]
 featured: true
 ---
 
-I took [Jira Coding Agent](https://support.atlassian.com/jira-software-cloud/docs/what-is-the-jira-coding-agent/) from zero to general availability (GA), leading a team of 15 engineers. The agent used the context already captured in a Jira issue to plan and generate a code change.
+I took [Jira Coding Agent](https://support.atlassian.com/jira-software-cloud/docs/what-is-the-jira-coding-agent/) from zero to general availability (GA), leading a team of 15 engineers. The agent uses the context of a Jira issue to plan, generate code and open a pull request directly from Jira.
 
 ## Success
 
