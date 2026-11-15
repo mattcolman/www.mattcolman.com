@@ -14,7 +14,7 @@ Primary homepage actions: Explore my work · Watch a talk. Keep contact easy to 
 
 ## Navigation and content
 
-Recommended navigation: **Projects · Speaking · Media · About · Contact**. Start as sections on a single page with direct anchor links. Give longer case studies or talks their own URLs when there is enough content to justify them. Keep Blog as a secondary/footer link. Remove Tutoring from primary navigation unless it remains an active offering; replace or remove the old résumé link once an up-to-date résumé is available.
+Recommended navigation: **Projects · Speaking · Media · About · Contact**. Start as sections on a single page with direct anchor links. Give longer case studies or talks their own URLs when there is enough content to justify them. Keep Blog as a secondary/footer link. Remove Tutoring from primary navigation unless it remains an active offering. For current résumé maintenance, see [README: Content](README.md#content).
 
 ### Projects
 
