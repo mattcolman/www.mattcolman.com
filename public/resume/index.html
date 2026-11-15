@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Matt Colman — engineering leader in Sydney, specialising in AI-powered developer tools, frontend engineering and growing teams.">
+  <meta name="color-scheme" content="light">
+  <title>Matt Colman — Resume</title>
+  <style>
+    :root {
+      --blue: #214b7d;
+      --navy: #163554;
+      --ink: #202d3a;
+      --muted: #526273;
+      --line: #dce3eb;
+      --wash: #f1f5fa;
+      --paper: #fff;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: #e8edf2; color: var(--ink); }
+    body { margin: 0; font: 15px/1.58 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:hover { color: var(--blue); }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #477dc0; outline-offset: 5px; }
+    h1, h2, h3, h4, p, ul { margin: 0; }
+    h1, h2, h3, h4 { text-wrap: balance; }
+    p, li, a, h1, h2, h3, h4 { overflow-wrap: anywhere; }
+    button { font: inherit; }
+    .toolbar { max-width: 1080px; margin: 28px auto 18px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 4px; }
+    .toolbar-label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .print-button { display: inline-flex; gap: 9px; align-items: center; padding: 10px 16px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--navy); cursor: pointer; font-size: 13px; font-weight: 600; }
+    .print-button:hover { background: var(--wash); border-color: #9fb0c4; }
+    .print-button svg { width: 17px; height: 17px; flex: none; }
+    .resume { max-width: 1080px; margin: auto; }
+    .resume-page { background: var(--paper); box-shadow: 0 4px 30px #1635540c; padding: 48px 56px 28px; }
+    .resume-page + .resume-page { margin-top: 24px; }
+    .masthead { margin: -48px -56px 30px; padding: 40px 56px 36px; background: var(--blue); color: white; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 255px); gap: 28px; align-items: center; }
+    .eyebrow { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; font-weight: 700; }
+    .masthead .eyebrow { color: #d5e4f5; margin-bottom: 7px; }
+    h1 { font-size: 50px; line-height: 1.12; letter-spacing: -.04em; font-weight: 650; }
+    .headline { font-size: 19px; line-height: 1.4; font-weight: 450; margin-top: 9px; }
+    .specialty { color: #d5e4f5; font-size: 12px; margin-top: 7px; }
+    .contact { font-style: normal; border-left: 1px solid #ffffff38; padding-left: 25px; font-size: 12px; line-height: 1.9; }
+    .contact p { margin-bottom: 5px; font-weight: 600; }
+    .contact a { display: block; text-decoration: none; }
+    .contact a:hover { color: white; text-decoration: underline; }
+    .profile { font-size: 16px; line-height: 1.65; padding-bottom: 26px; border-bottom: 1px solid var(--line); margin-bottom: 29px; max-width: 100%; }
+    .profile strong { color: var(--navy); font-weight: 650; }
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 218px); gap: 42px; }
+    .content-grid > *, .job-heading > *, .masthead > * { min-width: 0; }
+    .section-title { color: var(--blue); font-size: 11px; line-height: 1.4; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 21px; font-weight: 750; }
+    .job { margin-bottom: 25px; }
+    .job:last-child { margin-bottom: 0; }
+    .job + .job { padding-top: 22px; border-top: 1px solid var(--line); }
+    .job-heading { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 12px; }
+    h3 { font-size: 22px; color: var(--navy); letter-spacing: -.025em; line-height: 1.2; }
+    .dates { font-size: 11px; color: var(--muted); line-height: 1.5; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+    .role { margin-top: 15px; }
+    .role:first-of-type { margin-top: 0; }
+    .role-heading { margin-bottom: 6px; }
+    h4 { font-size: 13px; line-height: 1.45; font-weight: 700; color: var(--ink); }
+    .role .dates { display: block; margin-top: 2px; }
+    .job p, .job li { font-size: 13px; line-height: 1.62; }
+    .job ul { padding-left: 17px; }
+    .job li + li { margin-top: 5px; }
+    .job li::marker { color: var(--blue); }
+    .role-compact { margin-top: 13px; }
+    .role-compact p { margin-top: 4px; }
+    .aside-section + .aside-section { margin-top: 28px; padding-top: 23px; border-top: 1px solid var(--line); }
+    .aside-section .section-title { margin-bottom: 14px; }
+    .skill-group + .skill-group { margin-top: 18px; }
+    .skill-group h3 { font-size: 12px; letter-spacing: 0; margin-bottom: 6px; }
+    .skill-group p, .aside-section p { font-size: 12px; line-height: 1.75; color: var(--muted); }
+    .impact { background: var(--wash); border-left: 3px solid var(--blue); padding: 17px 18px; margin-bottom: 26px; }
+    .impact-number { display: block; color: var(--blue); font-size: 34px; letter-spacing: -.05em; font-weight: 650; line-height: 1.2; margin: 7px 0 4px; }
+    .impact p { font-size: 12px; line-height: 1.55; color: var(--muted); }
+    .page-footer { display: flex; gap: 18px; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 15px; margin-top: 29px; font-size: 10px; color: var(--muted); letter-spacing: .025em; }
+    .continuation { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 28px; }
+    .continuation .continuation-name { font-size: 21px; color: var(--blue); letter-spacing: -.025em; font-weight: 650; }
+    .continuation p { font-size: 11px; color: var(--muted); }
+    .education-item + .education-item, .talk + .talk { margin-top: 20px; }
+    .education-item h3, .talk h3 { font-size: 13px; letter-spacing: 0; line-height: 1.5; margin-bottom: 4px; }
+    .education-item p, .talk p { font-size: 12px; }
+    .education-item .distinction { color: var(--ink); margin-top: 5px; }
+    .talk a { text-decoration-color: #b1bfd0; }
+    @media (max-width: 1120px) {
+      .toolbar, .resume { margin-left: 20px; margin-right: 20px; }
+      .resume-page { padding: 36px 38px 25px; }
+      .masthead { margin: -36px -38px 26px; padding: 34px 38px; }
+      .content-grid { gap: 30px; grid-template-columns: minmax(0, 1fr) minmax(0, 195px); }
+    }
+    @media (max-width: 760px) {
+      .masthead { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+      .contact { border-left: 0; border-top: 1px solid #ffffff38; padding: 16px 0 0; display: flex; flex-wrap: wrap; gap: 2px 18px; }
+      .contact p { width: 100%; }
+      .content-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+      .sidebar { border-top: 1px solid var(--line); padding-top: 25px; }
+      .impact { max-width: 360px; }
+      .profile { font-size: 15px; }
+      .continuation { align-items: flex-start; }
+      .continuation p { text-align: right; }
+    }
+    @media (max-width: 420px) {
+      .toolbar, .resume { margin-left: 10px; margin-right: 10px; }
+      .toolbar-label { font-size: 10px; letter-spacing: .06em; }
+      .print-button { font-size: 11px; padding: 9px 11px; }
+      .resume-page { padding: 26px 22px 22px; }
+      .masthead { margin: -26px -22px 23px; padding: 29px 22px; }
+      h1 { font-size: 43px; }
+      .headline { font-size: 17px; }
+      .job-heading { flex-wrap: wrap; gap: 4px; }
+      .job-heading .dates { flex-basis: 100%; }
+      .continuation { flex-direction: column; gap: 5px; }
+      .continuation p { text-align: left; }
+      .page-footer { font-size: 9px; }
+    }
+    @page { size: A4; margin: 12mm 14mm; }
+    @media print {
+      html, body { background: white; font-size: 9pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .toolbar { display: none !important; }
+      .resume { max-width: none; margin: 0; }
+      .resume-page { box-shadow: none; padding: 0; }
+      .resume-page + .resume-page { margin: 0; break-before: page; }
+      .masthead { margin: 0 0 4mm; padding: 4mm 6mm; grid-template-columns: minmax(0, 1fr) 56mm; gap: 5mm; }
+      .masthead .eyebrow { font-size: 7pt; margin-bottom: 1mm; }
+      h1 { font-size: 29pt; }
+      .headline { font-size: 12pt; margin-top: 1mm; }
+      .specialty { font-size: 8pt; margin-top: 1mm; }
+      .contact { display: block; border-top: 0; border-left: 1px solid #ffffff38; padding: 0 0 0 5mm; font-size: 8pt; line-height: 1.65; }
+      .contact p { margin-bottom: 1mm; }
+      .profile { font-size: 9.5pt; line-height: 1.45; padding-bottom: 3mm; margin-bottom: 4mm; }
+      .content-grid { grid-template-columns: minmax(0, 1fr) 43mm; gap: 7mm; }
+      .sidebar { border: 0; padding: 0; }
+      .section-title { font-size: 8pt; margin-bottom: 3mm; }
+      .job { margin-bottom: 2mm; }
+      .job + .job { padding-top: 2mm; }
+      .job-heading { flex-wrap: nowrap; gap: 2mm; margin-bottom: 1.5mm; }
+      h3 { font-size: 14pt; }
+      .job-heading .dates { flex-basis: auto; }
+      .dates, .job .dates { font-size: 7.5pt; font-weight: 400; }
+      h4 { font-size: 9pt; }
+      .job p, .job li { font-size: 9pt; line-height: 1.4; }
+      .job li + li { margin-top: .75mm; }
+      .role { margin-top: 2mm; }
+      .role-heading { margin-bottom: 1mm; }
+      .role-compact { margin-top: 2mm; }
+      .role-compact p { margin-top: .75mm; }
+      .impact { padding: 3mm 4mm; margin-bottom: 4mm; }
+      .impact .eyebrow { font-size: 7pt; }
+      .impact-number { font-size: 23pt; margin: 1mm 0; }
+      .impact p, .skill-group p, .aside-section p { font-size: 8.5pt; line-height: 1.45; }
+      .skill-group h3 { font-size: 8.5pt; }
+      .skill-group + .skill-group { margin-top: 3mm; }
+      .aside-section + .aside-section { margin-top: 4mm; padding-top: 3mm; }
+      .aside-section .section-title { margin-bottom: 3mm; }
+      .page-footer { margin-top: 3mm; padding-top: 1.5mm; font-size: 7pt; }
+      .continuation { flex-direction: row; padding-bottom: 4mm; margin-bottom: 5mm; }
+      .continuation .continuation-name { font-size: 16pt; }
+      .continuation p { font-size: 8pt; text-align: right; }
+      .education-item h3, .talk h3 { font-size: 9pt; }
+      .education-item + .education-item, .talk + .talk { margin-top: 4mm; }
+      .education-item p, .talk p { font-size: 8.5pt; }
+      .job, .role, .education-item, .talk, .aside-section { break-inside: avoid; }
+      h2, h3, h4 { break-after: avoid; }
+      p, li { orphans: 3; widows: 3; }
+      a { text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <p class="toolbar-label">Matt Colman / Resume</p>
+    <button class="print-button" type="button" id="print-resume">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 8V3h10v5M7 17H4V9h16v8h-3"/><path d="M7 14h10v7H7zM16 11h1"/></svg>
+      Print / Save PDF
+    </button>
+  </div>
+  <main class="resume" aria-label="Matt Colman resume">
+    <section class="resume-page" aria-label="Profile and recent experience">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">Engineering leadership</p>
+          <h1>Matt Colman</h1>
+          <p class="headline">Engineering leader and AI consultant</p>
+          <p class="specialty">AI engineering · Growing high performing teams</p>
+        </div>
+        <address class="contact">
+          <p>Sydney, Australia</p>
+          <a href="mailto:matt@mattcolman.com">matt@mattcolman.com</a>
+          <a href="https://www.mattcolman.com">www.mattcolman.com</a>
+          <a href="https://www.linkedin.com/in/mattcolman/">linkedin.com/in/mattcolman</a>
+        </address>
+      </header>
+      <p class="profile"><strong>Engineering leader with a hands-on frontend foundation and a focus on building AI coding agents.</strong> Experience growing teams and building products at Atlassian, Domain and Blake eLearning. Combines people leadership with a background in animation, games and high-performance web experiences, helping engineers do their best work and turn complex problems into useful products.</p>
+      <div class="content-grid">
+        <div>
+          <h2 class="section-title">Recent experience</h2>
+          <article class="job">
+            <header class="job-heading">
+              <h3><a href="https://aiproductivitygroup.com/">AI Productivity Group</a></h3>
+              <p class="dates">Current</p>
+            </header>
+            <section class="role role-compact" aria-label="AI consultant at AI Productivity Group">
+              <h4>Independent AI consultant</h4>
+              <p>I help small and medium businesses and enterprise teams find bottlenecks in their software development process and apply AI to help them ship faster.</p>
+            </section>
+          </article>
+          <article class="job">
+            <header class="job-heading">
+              <h3>Atlassian</h3>
+              <p class="dates">May 2020 – Sep 2026</p>
+            </header>
+            <section class="role" aria-label="Senior Engineering Manager at Atlassian">
+              <div class="role-heading">
+                <h4>Senior Engineering Manager</h4>
+                <span class="dates">Oct 2023 – Sep 2026</span>
+              </div>
+              <ul>
+                <li>Led the team behind Jira Coding Agent (formerly Rovo Dev in Jira), taking the coding agent from zero to general availability in under 9 months.</li>
+                <li>This included building a fast, scaleable cloud sandbox platform from scratch, our own agent harness, building a new UX into Jira, aligning with Jira design guidelines, and compatibility with Atlassian Rovo.</li>
+                <li>The end result is a state of the art AI coding agent, native to Jira, that uses work-item context to write code, open pull requests and is built for smbs to enterprise companies doing real work.</li>
+                <li>To achieve this I fostered a high performing team of 15 fullstack software engineers. Focussing on building a roadmap to leverage frontier model progression, identify bottlenecks in the team, dogfooding our own product, balancing data driven and intuition, and consistently shipping and talking to the customer.</li>
+              </ul>
+            </section>
+            <section class="role role-compact" aria-label="Engineering Manager at Atlassian">
+              <h4>Engineering Manager <span class="dates">Jan 2022 – Oct 2023</span></h4>
+              <p>Led engineering work on Jira developer tools. Managing a team of 8 engineers, we built Deployments in Jira, Security in Jira and Code in Jira. Our dev panel in the issue view saw over 200K daily active users.</p>
+            </section>
+            <section class="role role-compact" aria-label="Senior Software Engineer at Atlassian">
+              <h4>Senior Software Engineer <span class="dates">May 2020 – Jan 2022</span></h4>
+              <p>Worked on Jira frontend experiences, bringing a focus on performance and delightful user experiences.</p>
+            </section>
+          </article>
+          <article class="job">
+            <header class="job-heading">
+              <h3>Domain Group</h3>
+              <p class="dates">Oct 2018 – May 2020</p>
+            </header>
+            <div class="role-heading"><h4>Engineering Manager</h4></div>
+            <ul>
+              <li>Led the team building the highest traffic product of Domain.com.au, the search and listings pages on both web and mobile web. This included working in a triad of design, PM and EM. I managed 8 fullstack / frontend engineers, including principal engineers.</li>
+              <li>Delivered responsive React and Node.js experiences, with a focus on server-side rendering, performance, code stability and data-informed product improvements.</li>
+            </ul>
+          </article>
+        </div>
+        <aside class="sidebar" aria-label="Expertise and highlights">
+          <div class="impact">
+            <h2 class="eyebrow">Recent delivery</h2>
+            <span class="impact-number">Jira Coding Agent</span>
+            <p>From zero to GA in under 9 months</p>
+          </div>
+          <section class="aside-section">
+            <h2 class="section-title">Core expertise</h2>
+            <div class="skill-group">
+              <h3>Engineering leadership</h3>
+              <p>Team development<br>Coaching &amp; mentoring<br>Cross-functional delivery<br>Distributed teams<br>Knowledge sharing</p>
+            </div>
+            <div class="skill-group">
+              <h3>AI &amp; developer experience</h3>
+              <p>AI coding agents<br>LLM-powered workflows<br>Prompt engineering<br>Cloud sandbox platforms<br>Software development lifecycle</p>
+            </div>
+          </section>
+          <section class="aside-section">
+            <h2 class="section-title">Leadership approach</h2>
+            <p>Hands-on when it helps. Focused on growing people, sharing knowledge and building teams that enjoy solving difficult problems together.</p>
+          </section>
+        </aside>
+      </div>
+      <footer class="page-footer"><span>Matt Colman · Engineering leadership</span><span>01 / 02</span></footer>
+    </section>
+    <section class="resume-page" aria-label="Earlier experience, education and speaking">
+      <header class="continuation">
+        <p class="continuation-name">Matt Colman</p>
+        <p>Experience, foundations &amp; community</p>
+      </header>
+      <div class="content-grid">
+        <div>
+          <h2 class="section-title">Earlier experience</h2>
+          <article class="job">
+            <header class="job-heading">
+              <h3>PlayUp</h3>
+              <p class="dates">Mar 2016 – Oct 2018</p>
+            </header>
+            <section class="role" aria-label="Front End Team Lead at PlayUp">
+              <div class="role-heading"><h4>Front End Team Lead <span class="dates">Oct 2016 – Oct 2018</span></h4></div>
+              <p>Led 3 React developers building a global fantasy sports platform with over 500,000 active users. Delivered a responsive app in three languages and five themes, using code-splitting for fast downloads.</p>
+            </section>
+            <section class="role role-compact" aria-label="JavaScript Developer at PlayUp">
+              <h4>JavaScript Developer <span class="dates">Mar 2016 – Oct 2016</span></h4>
+              <p>Created fantasy sports games for desktop and mobile using Phaser and PixiJS.</p>
+            </section>
+          </article>
+          <article class="job">
+            <header class="job-heading">
+              <h3>Blake eLearning</h3>
+              <p class="dates">Sep 2011 – Mar 2016</p>
+            </header>
+            <section class="role" aria-label="Games Team Lead at Blake eLearning">
+              <div class="role-heading">
+                <h4>Games Team Lead / JavaScript Developer</h4>
+                <span class="dates">Feb 2013 – Mar 2016</span>
+              </div>
+              <ul>
+                <li>Managed 7 developers, 5 designers and 5 external developers based in India.</li>
+                <li>Converted Reading Eggs from Flash to HTML5, bringing the learning experience to iPad and other tablets.</li>
+                <li>Built games, activities, a shop and a treehouse for Mathseeds, and developed features and documentation for the proprietary Caper HTML5 framework.</li>
+              </ul>
+            </section>
+            <section class="role" aria-label="Senior JavaScript Developer at Blake eLearning">
+              <div class="role-heading">
+                <h4>Senior JavaScript Developer</h4>
+                <span class="dates">Sep 2011 – Feb 2013</span>
+              </div>
+              <p>Developed games for Reading Eggspress and built the Caper HTML5 framework on EaselJS, RequireJS and GreenSock GSAP.</p>
+            </section>
+          </article>
+          <article class="job">
+            <header class="job-heading">
+              <h3>ITS Management</h3>
+              <p class="dates">Feb 2010 – Aug 2011</p>
+            </header>
+            <div class="role-heading"><h4>JavaScript / Flash Developer</h4></div>
+            <ul>
+              <li>Developed mini-games for the Facebook app Kitchen Slot Madness, combining game design, visual design, ActionScript 3 and Box2D physics.</li>
+              <li>Created Flash promotions and JavaScript widgets across the company’s web portfolio, using Google Analytics to inform weekly game improvements.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <header class="job-heading">
+              <h3>EyeView</h3>
+              <p class="dates">Jan 2008 – Dec 2009</p>
+            </header>
+            <div class="role-heading">
+              <h4>Motion Graphics Team Lead / Flash Developer</h4>
+              <span class="dates">Sydney, Australia &amp; Tel Aviv, Israel</span>
+            </div>
+            <ul>
+              <li>Managed motion graphics teams of 3 in Sydney and 4 in Tel Aviv.</li>
+              <li>Created over 100 online video experiences for clients including eBay, Nokia and Yahoo, connecting JavaScript interactions with video and Flash.</li>
+              <li>Built JavaScript presets and scripts for After Effects, plus Flash applications, video players and interactive launch experiences.</li>
+            </ul>
+          </article>
+          <section class="aside-section" style="margin-top: 30px; padding-top: 23px; border-top: 1px solid var(--line);">
+            <h2 class="section-title">Creative foundation</h2>
+            <p>A background in animation and game development shapes a practical eye for interaction design, smooth motion and responsive user experiences.</p>
+          </section>
+        </div>
+        <aside class="sidebar" aria-label="Education, speaking and interests">
+          <section class="aside-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+              <h3>Principles of Programming</h3>
+              <p>University of New South Wales<br>Mar – Jul 2011</p>
+              <p class="distinction">Completed with Distinction.</p>
+            </div>
+            <div class="education-item">
+              <h3>Bachelor of Digital Media</h3>
+              <p>UNSW, College of Fine Arts<br>2005 – 2007 · Graduated 2008</p>
+              <p class="distinction">High Distinctions in Interactive Media and Professional Practice.</p>
+            </div>
+          </section>
+          <section class="aside-section">
+            <h2 class="section-title">Selected speaking</h2>
+            <article class="talk">
+              <h3><a href="https://conffab.com/program/dev-summit-24/">Building an AI team when no one knows anything about AI</a></h3>
+              <p>Web Directions Dev Summit<br>2024</p>
+            </article>
+            <article class="talk">
+              <h3><a href="https://gitnation.com/contents/a-tale-of-the-flip-floppers-from-engineer-to-manager-and-back-again">A Tale of the Flip Floppers. From Engineer to Manager and Back Again</a></h3>
+              <p>React Day Berlin · 2023<br>Web Directions Summit · 2022</p>
+            </article>
+          </section>
+          <section class="aside-section">
+            <h2 class="section-title">Beyond work</h2>
+            <p>Kids · Travel · Golf</p>
+          </section>
+        </aside>
+      </div>
+      <footer class="page-footer"><span>matt@mattcolman.com · Sydney, Australia</span><span>02 / 02</span></footer>
+    </section>
+  </main>
+  <script>
+    document.getElementById('print-resume').addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>
