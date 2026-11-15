@@ -2,6 +2,8 @@
 
 - `npm run build` runs Astro diagnostics and generates the static site. Use `npm run preview` to verify production output without the development toolbar.
 - Deployment: Cloudflare Workers Builds is connected to GitHub. `wrangler.jsonc` (name `www-mattcolman-com`, assets `dist/`) is required — the build fails instantly without it. `wrangler` is pinned exactly in package.json because Workers Builds uses that version.
+- **Visual changes:** as part of validation, open a live preview at the page or section that changed and share the direct preview link with Matt. Prefer the Cloudflare branch Preview URL when available. Otherwise, start a local preview of the production build and leave it running for review.
+- **Visual PRs:** attach screenshots of key states to the PR by default. Skip screenshots for non-visual work.
 - For layout changes, check Chromium and WebKit at 320, 390, 768, 920, 921, and 1440 CSS pixels, including project and speaking detail pages.
 - Sample document width and height throughout the portrait's 24-second animation cycle. Its paint containment and badge clearance prevent transformed bounds from widening the mobile viewport.
 - Keep the 920px mobile breakpoint and reduced-motion behavior consistent between CSS and the portrait timer. The active badge's animation selector must also be overridden.

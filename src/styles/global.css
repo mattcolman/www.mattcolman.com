@@ -43,8 +43,6 @@ h1, h2, h3 { font-weight: 500; }
 .hero h1 span { display: block; }
 .hero h1 span:last-child { color: #75786f; }
 .intro-copy { max-width: 530px; margin-top: 28px; font-size: 1.02rem; line-height: 1.75; }
-.now-line { display: flex; gap: 9px; align-items: baseline; margin-top: 21px; font-size: .85rem; }
-.now-line .label { color: var(--accent); }
 .signature { padding-top: 15px; text-align: center; }
 .signature-art { display: block; width: 174px; height: 174px; margin-inline: auto; contain: paint; }
 .signature .grid-dot { fill: #dcded4; }
@@ -104,10 +102,11 @@ h1, h2, h3 { font-weight: 500; }
 .talk-link:last-child { border-bottom: 0; }
 .talk-link span:last-child { color: var(--accent); font: 400 .62rem var(--mono); }
 .archive-link { margin-top: 8px; font-size: .76rem; }
-.next-chapter { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
 .next-chapter h2 { font-size: 1.8rem; letter-spacing: -.025em; }
-.next-chapter p:not(.label) { max-width: 565px; margin-top: 10px; color: var(--muted); font-size: .87rem; }
-.next-chapter .text-link { margin-top: 12px; }
+.next-chapter h3 { margin-top: 8px; }
+.next-chapter h3 .text-link { font-size: 1.15rem; letter-spacing: -.02em; }
+.next-chapter p { max-width: 565px; color: var(--muted); font-size: .87rem; }
+.next-chapter > .text-link { margin-top: 8px; }
 
 .site-footer { display: flex; justify-content: space-between; gap: 16px; padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: .7rem; }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 22px; }
@@ -163,7 +162,6 @@ h1, h2, h3 { font-weight: 500; }
   .signature { padding-top: 26px; }
   .speaking-home { grid-template-columns: minmax(0, 1fr) 200px; gap: 26px; }
   .work-row { grid-template-columns: 125px minmax(0, 1fr) 20px; }
-  .next-chapter { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 600px) {
@@ -174,7 +172,6 @@ h1, h2, h3 { font-weight: 500; }
   .location { margin-bottom: 19px; font-size: .72rem; }
   .hero h1 { font-size: clamp(2.25rem, 8.5vw, 3.2rem); line-height: 1.11; letter-spacing: -.055em; }
   .intro-copy { margin-top: 22px; font-size: .95rem; }
-  .now-line { font-size: .8rem; }
   .signature { display: grid; grid-template-columns: 105px minmax(0, 1fr); grid-template-rows: auto auto auto; column-gap: 22px; align-items: center; margin-top: 0; padding: 12px 0 0; border-top: 1px solid var(--line); text-align: left; }
   .signature-art { grid-row: 1 / 4; width: 105px; height: 105px; }
   .signature-caption { margin-top: 0; font-size: .6rem; }
@@ -201,7 +198,6 @@ h1, h2, h3 { font-weight: 500; }
   .speaking-home figcaption { font-size: .6rem; }
   .section-heading h2, .speaking-home h2, .next-chapter h2, .prose h2, .archive-page h2 { font-size: 1.65rem; }
   .talk-link { font-size: .8rem; }
-  .next-chapter { grid-template-columns: minmax(0, 1fr); gap: 13px; }
   .site-footer { display: block; padding-top: 16px; padding-bottom: 24px; }
   .site-footer nav { gap: 20px; }
   .detail-page { padding: 20px 0 40px; }
